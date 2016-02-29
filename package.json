@@ -1,0 +1,73 @@
+{
+  "name": "portalen",
+  "version": "1.0.0",
+  "description": "Portal frontpage for Telemark fylkeskommune",
+  "license": "MIT",
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "contributors": [
+    {
+      "name": "Jonas Enge",
+      "email": "jonas.enge@gmail.com",
+      "url": "https://github.com/maccyber"
+    }
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.3.1"
+  },
+  "scripts": {
+    "start": "node standalone.js",
+    "test": "standard && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "setup": "npm install && node setup.js",
+    "generate-test-token": "node utils/generate-test-token.js"
+  },
+  "keywords": [
+    "Louie",
+    "Telemark fylkeskommune",
+    "Tfk",
+    "Portalen"
+  ],
+  "standard": {
+    "ignore": [
+      "public"
+    ]
+  },
+  "louie": {
+    "versionName": "Motörhead",
+    "versionVideoUrl": "https://www.youtube.com/watch?v=4V1p1dM3snQ",
+    "systemName": "Portalen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/telemark/portalen.git"
+  },
+  "bugs": {
+    "url": "http://github.com/telemark/portalen/issues"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "standard": "^6.0.5",
+    "tap": "^5.4.4"
+  },
+  "dependencies": {
+    "good": "^6.6.0",
+    "good-console": "^5.3.1",
+    "handlebars": "^4.0.5",
+    "hapi": "^13.0.0",
+    "hapi-auth-cookie": "^6.0.0",
+    "hapi-auth-jwt2": "^5.4.1",
+    "hoek": "^3.0.4",
+    "inert": "^3.2.0",
+    "jsonwebtoken": "^5.5.4",
+    "ldapauth-fork": "^2.5.2",
+    "mongojs": "^2.3.0",
+    "vision": "^4.0.1",
+    "wreck": "^7.0.0"
+  }
+}
