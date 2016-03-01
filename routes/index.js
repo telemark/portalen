@@ -1,7 +1,6 @@
 'use strict'
 
 var handlers = require('../handlers')
-var api = require('../handlers/api')
 
 var routes = [
   {
@@ -10,14 +9,6 @@ var routes = [
     config: {
       handler: handlers.getFrontpage,
       description: 'Show the frontpage'
-    }
-  },
-  {
-    method: 'GET',
-    path: '/logs',
-    config: {
-      handler: handlers.getLogspage,
-      description: 'Show the logspage'
     }
   },
   {
@@ -51,64 +42,6 @@ var routes = [
     path: '/logout',
     config: {
       handler: handlers.doLogout
-    }
-  },
-  {
-    method: 'POST',
-    path: '/search',
-    config: {
-      handler: handlers.doSearch
-    }
-  },
-  {
-    method: 'GET',
-    path: '/warning/{studentID}',
-    config: {
-      handler: handlers.writeWarning,
-      description: 'Get student by {studentID}'
-    }
-  },
-  {
-    method: 'POST',
-    path: '/warning/preview/{studentID}',
-    config: {
-      handler: handlers.generateWarningPreview,
-      description: 'Show warning preview for {studentID}'
-    }
-  },
-  {
-    method: 'POST',
-    path: '/warning/{studentID}',
-    config: {
-      handler: handlers.submitWarning,
-      description: 'Get student by {studentID}'
-    }
-  },
-  {
-    method: 'get',
-    path: '/api/queue/next',
-    config: {
-      handler: api.getNextFromQueue,
-      description: 'Get next job from queue',
-      auth: 'jwt'
-    }
-  },
-  {
-    method: 'delete',
-    path: '/api/queue/{jobId}',
-    config: {
-      handler: api.deleteFromQueue,
-      description: 'Delete job from queue',
-      auth: 'jwt'
-    }
-  },
-  {
-    method: 'post',
-    path: '/api/logs/{documentId}',
-    config: {
-      handler: api.addStatusToLog,
-      description: 'Adds status to log',
-      auth: 'jwt'
     }
   }
 ]

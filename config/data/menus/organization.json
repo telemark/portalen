@@ -1,0 +1,16 @@
+[
+  {
+    "id": "0",
+    "title": "Home",
+    "url": "/",
+    "description": "Gå til forsiden",
+    "icon": "home"
+  },
+  {
+    "id": "10",
+    "title": "Innstillinger",
+    "url": "/settings",
+    "description": "Vis siden for innstillinger",
+    "icon": "settings"
+  }
+]

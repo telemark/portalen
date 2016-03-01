@@ -3,35 +3,18 @@
 var fs = require('fs')
 var mongojs = require('mongojs')
 var Wreck = require('wreck')
-var getWarningTemplatesPath = require('tfk-saksbehandling-elev-varsel-templates')
-var FormData = require('form-data')
 var config = require('../config')
-var dblog = mongojs(config.DB_CONNECTION_LOG)
-var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
-var logs = dblog.collection('logs')
-var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
-var prepareWarning = require('../lib/prepare-warning')
-var prepareWarningPreview = require('../lib/prepare-warning-preview')
-var order = require('../lib/categories-order')
-var behaviour = require('../lib/categories-behaviour')
-var warningTypes = require('../lib/categories-warnings')
+var dbprofile = mongojs(config.DB_CONNECTION_PROFILE)
+var dbmessage = mongojs(config.DB_CONNECTION_MESSAGE)
+var profiles = dbprofile.collection('profiles')
+var messages = dbmessage.collection('messages')
 var wreckOptions = {
   json: true
 }
 
-function filterWarningTypes (contactTeacher) {
-  var filteredList = []
-  warningTypes.forEach(function (type) {
-    if (type.id === 'fag' || contactTeacher) {
-      filteredList.push(type)
-    }
-  })
-  return filteredList
-}
-
 function getFrontpage (request, reply) {
-  logs.find({'userId': request.auth.credentials.data.userId}).sort({timeStamp: -1}).limit(20, function (error, data) {
+  messages.find({}).sort({timeStamp: -1}).limit(20, function (error, data) {
     if (error) {
       console.error(error)
     }
@@ -43,38 +26,9 @@ function getFrontpage (request, reply) {
       githubUrl: pkg.repository.url,
       credentials: request.auth.credentials,
       latestId: request.query.documentAdded,
-      logs: data || []
+      messages: data || []
     }
     reply.view('index', viewOptions)
-  })
-}
-
-function getLogspage (request, reply) {
-  var query = {}
-  if (request.query.studentId) {
-    query.studentId = request.query.studentId
-  } else {
-    query.userId = request.auth.credentials.data.userId
-  }
-
-  logs.find(query).sort({timeStamp: -1}, function (error, data) {
-    if (error) {
-      console.error(error)
-    }
-    var viewOptions = {
-      version: pkg.version,
-      versionName: pkg.louie.versionName,
-      versionVideoUrl: pkg.louie.versionVideoUrl,
-      systemName: pkg.louie.systemName,
-      githubUrl: pkg.repository.url,
-      credentials: request.auth.credentials,
-      logs: data
-    }
-    if (request.query.studentId) {
-      reply.view('logs-detailed', viewOptions)
-    } else {
-      reply.view('logs', viewOptions)
-    }
   })
 }
 
@@ -179,173 +133,7 @@ function doLogout (request, reply) {
   reply.redirect('/')
 }
 
-function doSearch (request, reply) {
-  var data = request.payload
-  var searchText = data.searchText
-  var viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url,
-    credentials: request.auth.credentials,
-    searchText: searchText
-  }
-
-  var searchUrl = config.BUDDY_API_URL + '/users/' + request.auth.credentials.data.userId + '/search/'
-  wreckOptions.headers = {
-    Authorization: request.auth.credentials.token
-  }
-
-  Wreck.get(searchUrl + searchText, wreckOptions, function (error, res, payload) {
-    if (error) {
-      reply(error)
-    } else {
-      if (res.statusCode === 200) {
-        viewOptions.students = payload
-        reply.view('search-results', viewOptions)
-      }
-      if (res.statusCode === 404) {
-        console.log(res.statusCode)
-        console.log(payload)
-        viewOptions.students = []
-        reply.view('search-results', viewOptions)
-      }
-      if (res.statusCode === 401) {
-        console.log(res.statusCode)
-        console.log(payload)
-        reply.redirect('/logout')
-      }
-    }
-  })
-}
-
-/*
- // For local testing
- function doSearch (request, reply) {
- var students = require('../test/data/students')
- var data = request.payload
- var searchText = data.searchText
- var viewOptions = {
- version: pkg.version,
- versionName: pkg.louie.versionName,
- versionVideoUrl: pkg.louie.versionVideoUrl,
- systemName: pkg.louie.systemName,
- githubUrl: pkg.repository.url,
- credentials: request.auth.credentials,
- students: students,
- searchText: searchText
- }
- reply.view('search-results', viewOptions)
- }
- */
-
-function writeWarning (request, reply) {
-  var studentID = request.params.studentID
-  var viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.systemName,
-    githubUrl: pkg.repository.url,
-    credentials: request.auth.credentials,
-    order: order,
-    behaviour: behaviour
-  }
-
-  var searchUrl = config.BUDDY_API_URL + '/users/' + request.auth.credentials.data.userId + '/students/'
-  wreckOptions.headers = {
-    Authorization: request.auth.credentials.token
-  }
-
-  Wreck.get(searchUrl + studentID, wreckOptions, function (error, res, payload) {
-    if (error) {
-      reply(error)
-    } else {
-      if (res.statusCode === 200) {
-        var student = payload[0]
-        viewOptions.student = student
-        viewOptions.warningTypes = filterWarningTypes(student.contactTeacher)
-        reply.view('warning', viewOptions)
-      }
-      if (res.statusCode === 401) {
-        console.log(JSON.stringify(payload))
-        reply.redirect('/logout')
-      }
-    }
-  })
-}
-
-function generateWarningPreview (request, reply) {
-  var user = request.auth.credentials.data
-  var data = request.payload
-  data.studentId = request.params.studentID
-  data.userId = user.userId
-  data.userName = user.cn
-  var postData = prepareWarning(data)
-  var previewData = prepareWarningPreview(postData)
-  var template = getWarningTemplatesPath(postData.documentCategory)
-  var templaterForm = new FormData()
-
-  Object.keys(previewData).forEach(function (key) {
-    templaterForm.append(key, previewData[key])
-  })
-
-  templaterForm.append('file', fs.createReadStream(template))
-
-  templaterForm.submit(config.TEMPLATER_SERVICE_URL, function (error, docx) {
-    if (error) {
-      reply(error)
-    } else {
-      var chunks = []
-      var totallength = 0
-
-      docx.on('data', function (chunk) {
-        chunks.push(chunk)
-        totallength += chunk.length
-      })
-
-      docx.on('end', function () {
-        var results = new Buffer(totallength)
-        var pos = 0
-        for (var i = 0; i < chunks.length; i++) {
-          chunks[i].copy(results, pos)
-          pos += chunks[i].length
-        }
-        reply(results.toString('base64'))
-      })
-    }
-  })
-}
-
-function submitWarning (request, reply) {
-  var user = request.auth.credentials.data
-  var data = request.payload
-  data.studentId = request.params.studentID
-  data.userId = user.userId
-  data.userName = user.cn
-  var postData = prepareWarning(data)
-
-  queue.save(postData, function (error, doc) {
-    if (error) {
-      console.error(error)
-    } else {
-      postData.documentId = doc._id.toString()
-      postData.documentStatus = [
-        {
-          timeStamp: new Date().getTime(),
-          status: 'I kø'
-        }
-      ]
-      logs.save(postData)
-      reply.redirect('/?documentAdded=' + postData.documentId)
-    }
-  })
-}
-
 module.exports.getFrontpage = getFrontpage
-
-module.exports.getLogspage = getLogspage
 
 module.exports.getHelppage = getHelppage
 
@@ -354,11 +142,3 @@ module.exports.showLogin = showLogin
 module.exports.doLogin = doLogin
 
 module.exports.doLogout = doLogout
-
-module.exports.doSearch = doSearch
-
-module.exports.writeWarning = writeWarning
-
-module.exports.generateWarningPreview = generateWarningPreview
-
-module.exports.submitWarning = submitWarning

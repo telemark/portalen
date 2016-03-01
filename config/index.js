@@ -24,7 +24,7 @@ function ldapTlsSettings () {
 
 var config = {
   SERVER_PORT_WEB: process.env.SERVER_PORT_WEB || 8000,
-  DB_CONNECTION_MESSAGES: process.env.DB_CONNECTION_MESSAGES || 'mongodb://messageserver/louie',
+  DB_CONNECTION_MESSAGE: process.env.DB_CONNECTION_MESSAGE || 'mongodb://messageserver/louie',
   DB_CONNECTION_PROFILE: process.env.DB_CONNECTION_PROFILE || 'mongodb://profileserver/louie',
   JWT_SECRET: process.env.JWT_SECRET || 'Louie Louie, oh no, I got to go',
   COOKIE_SECRET: process.env.COOKIE_SECRET || 'Louie Louie, oh no, I got to go',
