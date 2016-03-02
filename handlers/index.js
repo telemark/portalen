@@ -14,7 +14,7 @@ var wreckOptions = {
 }
 
 function getFrontpage (request, reply) {
-  messages.find({}).sort({timeStamp: -1}).limit(20, function (error, data) {
+  messages.find({type: 'message'}).sort({timeStamp: -1}).limit(20, function (error, data) {
     if (error) {
       console.error(error)
     }
@@ -42,6 +42,18 @@ function getHelppage (request, reply) {
     credentials: request.auth.credentials
   }
   reply.view('help', viewOptions)
+}
+
+function getSettingsPage (request, reply) {
+  var viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url,
+    credentials: request.auth.credentials
+  }
+  reply.view('settings', viewOptions)
 }
 
 function showLogin (request, reply) {
@@ -126,19 +138,53 @@ function doLogin (request, reply) {
 
  reply.redirect('/')
  }
- */
+*/
 
 function doLogout (request, reply) {
   request.cookieAuth.clear()
   reply.redirect('/')
 }
 
+function markMessageAsRead (request, reply) {
+  var userId = request.auth.credentials.data.userId
+  var messageID = request.params.messageID
+  var type = 'read'
+  var data = {
+    userId: userId,
+    messageID: messageID,
+    type: type
+  }
+  messages.save(data, function(error, data) {
+    reply(error || 'Meldingen er fjernet fra listen din')
+  })
+}
+
+function markMessageAsStarred (request, reply) {
+  var userId = request.auth.credentials.data.userId
+  var messageID = request.params.messageID
+  var type = 'starred'
+  var data = {
+    userId: userId,
+    messageID: messageID,
+    type: type
+  }
+  messages.save(data, function(error, data) {
+    reply(error || 'Meldingen er lagret som favoritt')
+  })
+}
+
 module.exports.getFrontpage = getFrontpage
 
 module.exports.getHelppage = getHelppage
+
+module.exports.getSettingsPage = getSettingsPage
 
 module.exports.showLogin = showLogin
 
 module.exports.doLogin = doLogin
 
 module.exports.doLogout = doLogout
+
+module.exports.markMessageAsRead = markMessageAsRead
+
+module.exports.markMessageAsStarred = markMessageAsStarred

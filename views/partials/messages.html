@@ -1,0 +1,25 @@
+{{#each messages}}
+    <div id="messageCard{{_id}}" class="message-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{title}}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <div class="mdl-typography--text-right">{{userName}} {{formatDate timeStamp}}</div>
+            {{{newlineToBr description}}}
+        </div>
+        <div class="mdl-card__actions mdl-card__supporting-text mdl-card--border">
+            {{showTagsList tags}}
+        </div>
+        <div class="mdl-card__menu">
+            <button id="starMessage{{_id}}" title="Ta vare på denne meldingen" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect material-icons messages-star-button">star_border</button>
+            <button id="clearMessage{{_id}}" title="Slett denne meldingen fra listen din" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect material-icons messages-close-button">clear</button>
+        </div>
+    </div>
+{{/each}}
+
+<div class="mdl-snackbar mdl-js-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action"></button>
+</div>
+<!-- Helper script -->
+<script defer src="/public/js/messages.js"></script>

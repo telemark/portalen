@@ -1,0 +1,30 @@
+[
+  {
+    "type": "message",
+    "title": "Kjøp pølser i kantina i dag",
+    "description": "Fine pølser. Massive pølser. Og brød. Og løk, om du absolutt vil",
+    "userId": "gasg",
+    "userName": "Geir Gåsodden",
+    "timeStamp": "1456839035277",
+    "created": "1456839035277",
+    "modified": "1456839035277",
+    "tags": [
+      "#Alle",
+      "#Kantina fylkeshuset"
+    ]
+  },
+  {
+    "type": "message",
+    "title": "Kjøp ost i kantina i dag",
+    "description": "Fine oster. Massive oster. Og brød. Og løk, om du absolutt vil",
+    "userId": "gasg",
+    "userName": "Geir Gåsodden",
+    "timeStamp": "1456902141253",
+    "created": "1456902141253",
+    "modified": "1456902141253",
+    "tags": [
+      "#Alle",
+      "#Kantina fylkeshuset"
+    ]
+  }
+]

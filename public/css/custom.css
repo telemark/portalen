@@ -279,6 +279,15 @@ a:visited {
     z-index: 2000;
 }
 
-.mdl-card--border-bottom {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.message-card-wide.mdl-card {
+    width: 512px;
+    margin: 10px;
+}
+
+.message-card-wide > .mdl-card__title {
+    height: 176px;
+}
+
+.text-right {
+    text-align: right;
 }

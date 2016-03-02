@@ -21,6 +21,30 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/settings',
+    config: {
+      handler: handlers.getSettingsPage,
+      description: 'Show the page for settings'
+    }
+  },
+  {
+    method: 'POST',
+    path: '/messages/{messageID}/markasread',
+    config: {
+      handler: handlers.markMessageAsRead,
+      description: 'Mark the message as read'
+    }
+  },
+  {
+    method: 'POST',
+    path: '/messages/{messageID}/markasstarred',
+    config: {
+      handler: handlers.markMessageAsStarred,
+      description: 'Mark the message as starred'
+    }
+  },
+  {
+    method: 'GET',
     path: '/login',
     config: {
       handler: handlers.showLogin,
