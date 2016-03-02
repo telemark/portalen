@@ -1,6 +1,7 @@
 'use strict'
 
 var handlers = require('../handlers')
+var messages = require('../handlers/messages')
 
 var routes = [
   {
@@ -28,10 +29,18 @@ var routes = [
     }
   },
   {
+    method: 'GET',
+    path: '/messages/tags/{tag}',
+    config: {
+      handler: messages.getMessagesByTag,
+      description: 'Show messages with tag'
+    }
+  },
+  {
     method: 'POST',
     path: '/messages/{messageID}/markasread',
     config: {
-      handler: handlers.markMessageAsRead,
+      handler: messages.markMessageAsRead,
       description: 'Mark the message as read'
     }
   },
@@ -39,7 +48,7 @@ var routes = [
     method: 'POST',
     path: '/messages/{messageID}/markasstarred',
     config: {
-      handler: handlers.markMessageAsStarred,
+      handler: messages.markMessageAsStarred,
       description: 'Mark the message as starred'
     }
   },
