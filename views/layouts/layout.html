@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div class="mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
@@ -42,8 +42,19 @@
             </nav>
         </div>
     </header>
-    <main class="mdl-layout mdl-js-layout mdl-layout__content">
-        {{{content}}}
+    <div class="mdl-layout__drawer mdl-color-text--black">
+        <span class="mdl-layout-title mdl-color-text--black">Title</span>
+        <nav class="mdl-navigation mdl-color-text--black">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div>
+            {{{content}}}
+        </div>
     </main>
 </div>
 </body>

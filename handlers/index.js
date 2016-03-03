@@ -14,7 +14,7 @@ var wreckOptions = {
 }
 
 function getFrontpage (request, reply) {
-  messages.find({type: 'message'}).sort({timeStamp: -1}).limit(20, function (error, data) {
+  messages.find({type: 'message'}).sort({_id: -1}).limit(20, function (error, data) {
     if (error) {
       console.error(error)
     }
@@ -66,7 +66,7 @@ function showLogin (request, reply) {
   }
   reply.view('login', viewOptions, {layout: 'layout-login'})
 }
-/*
+
 function doLogin (request, reply) {
   var jwt = require('jsonwebtoken')
   var payload = request.payload
@@ -113,31 +113,32 @@ function doLogin (request, reply) {
     }
   })
 }
-*/
 
+/*
  // For local testing
  function doLogin (request, reply) {
- var jwt = require('jsonwebtoken')
- var payload = request.payload
- var username = payload.username
- // var password = payload.password
- var user = {
- cn: username,
- userId: username
- }
- var tokenOptions = {
- expiresIn: '1h',
- issuer: 'https://auth.t-fk.no'
- }
- var token = jwt.sign(user, config.JWT_SECRET, tokenOptions)
- request.cookieAuth.set({
- token: token,
- isAuthenticated: true,
- data: user
- })
+   var jwt = require('jsonwebtoken')
+   var payload = request.payload
+   var username = payload.username
+   // var password = payload.password
+   var user = {
+     cn: username,
+     userId: username
+   }
+   var tokenOptions = {
+     expiresIn: '1h',
+     issuer: 'https://auth.t-fk.no'
+   }
+   var token = jwt.sign(user, config.JWT_SECRET, tokenOptions)
+   request.cookieAuth.set({
+     token: token,
+     isAuthenticated: true,
+     data: user
+   })
 
- reply.redirect('/')
+   reply.redirect('/')
  }
+*/
 
 function doLogout (request, reply) {
   request.cookieAuth.clear()

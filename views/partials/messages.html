@@ -1,5 +1,8 @@
+<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-typography--text-right">
+    <a href="/messages/add" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Skriv ny melding"><span class="material-icons">add</span></a>
+</div>
 {{#each messages}}
-    <div id="messageCard{{_id}}" class="message-card-wide mdl-card mdl-shadow--2dp">
+    <div id="messageCard{{_id}}" class="mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-shadow--2dp">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">{{title}}</h2>
         </div>
@@ -11,12 +14,13 @@
             {{{showTagsList tags}}}
         </div>
         <div class="mdl-card__menu">
+            <a href="/messagges/{{_id}}/delete" id="deleteMessage{{_id}}" title="Slett denne meldingen" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect messages-delete-button"><span class="material-icons ">delete</span></a>
+            <a href="/messages/{{_id}}/edit" id="editMessage{{_id}}" title="Endre denne meldingen" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect messages-edit-button"><span class="material-icons ">edit</span></a>
             <button id="starMessage{{_id}}" title="Ta vare på denne meldingen" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect material-icons messages-star-button">star_border</button>
-            <button id="clearMessage{{_id}}" title="Slett denne meldingen fra listen din" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect material-icons messages-close-button">clear</button>
+            <button id="clearMessage{{_id}}" title="Fjern denne meldingen fra listen din" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect material-icons messages-close-button">clear</button>
         </div>
     </div>
 {{/each}}
-
 <div class="mdl-snackbar mdl-js-snackbar">
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action"></button>
