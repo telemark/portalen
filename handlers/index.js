@@ -2,16 +2,12 @@
 
 var fs = require('fs')
 var mongojs = require('mongojs')
-var Wreck = require('wreck')
 var config = require('../config')
 var pkg = require('../package.json')
 var dbprofile = mongojs(config.DB_CONNECTION_PROFILE)
 var dbmessage = mongojs(config.DB_CONNECTION_MESSAGE)
 var profiles = dbprofile.collection('profiles')
 var messages = dbmessage.collection('messages')
-var wreckOptions = {
-  json: true
-}
 
 function getFrontpage (request, reply) {
   messages.find({type: 'message'}).sort({_id: -1}).limit(20, function (error, data) {
@@ -42,6 +38,18 @@ function getHelppage (request, reply) {
     credentials: request.auth.credentials
   }
   reply.view('help', viewOptions)
+}
+
+function getStyringsinfoPage (request, reply) {
+  var viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.systemName,
+    githubUrl: pkg.repository.url,
+    credentials: request.auth.credentials
+  }
+  reply.view('styringsinformasjon', viewOptions)
 }
 
 function getSettingsPage (request, reply) {
@@ -148,6 +156,8 @@ function doLogout (request, reply) {
 module.exports.getFrontpage = getFrontpage
 
 module.exports.getHelppage = getHelppage
+
+module.exports.getStyringsinfoPage = getStyringsinfoPage
 
 module.exports.getSettingsPage = getSettingsPage
 

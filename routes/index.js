@@ -21,6 +21,14 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/styringsinformasjon',
+    config: {
+      handler: handlers.getStyringsinfoPage,
+      description: 'Show the styringsinformasjonspage'
+    }
+  },
+  {
+    method: 'GET',
     path: '/settings',
     config: {
       handler: handlers.getSettingsPage,
