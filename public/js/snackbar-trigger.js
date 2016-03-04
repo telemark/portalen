@@ -5,6 +5,15 @@ function generateMessage (input) {
   if (/feedbackCollected/.test(input)) {
     msg = 'Tilbakemeldingen din er registrert. Tusen takk.'
   }
+  if (/messageAdded/.test(input)) {
+    msg = 'Meldingen din er lagt inn.'
+  }
+  if (/messageUpdated/.test(input)) {
+    msg = 'Meldingen er oppdatert.'
+  }
+  if (/messageDeleted/.test(input)) {
+    msg = 'Meldingen er slettet.'
+  }
   return msg
 }
 

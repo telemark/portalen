@@ -37,6 +37,22 @@ var routes = [
   },
   {
     method: 'POST',
+    path: '/messages/{messageID}/edit',
+    config: {
+      handler: messages.editMessage,
+      description: 'Edit message'
+    }
+  },
+  {
+    method: 'GET',
+    path: '/messages/{messageID}/delete',
+    config: {
+      handler: messages.deleteMessage,
+      description: 'Delete message'
+    }
+  },
+  {
+    method: 'POST',
     path: '/messages/{messageID}/markasread',
     config: {
       handler: messages.markMessageAsRead,

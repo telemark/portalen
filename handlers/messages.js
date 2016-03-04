@@ -1,6 +1,5 @@
 'use strict'
 
-var fs = require('fs')
 var mongojs = require('mongojs')
 var config = require('../config')
 var pkg = require('../package.json')
@@ -40,7 +39,8 @@ function showAddMessagePage (request, reply) {
   reply.view('message-add', viewOptions)
 }
 
-function showEditMessagePage(request, reply) {
+function showEditMessagePage (request, reply) {
+  var tags = require('../config/data/tags/dummy.json')
   var messageID = mongojs.ObjectID(request.params.messageID)
   messages.findOne({'_id': messageID}, function (error, document) {
     if (error) {
@@ -54,7 +54,8 @@ function showEditMessagePage(request, reply) {
         systemName: pkg.louie.systemName,
         githubUrl: pkg.repository.url,
         credentials: request.auth.credentials,
-        message: document
+        message: document,
+        tags: tags
       }
       reply.view('message-edit', viewOptions)
     }
@@ -71,11 +72,66 @@ function addMessage (request, reply) {
   data.timeStamp = now
   data.created = now
   data.modified = now
+  data.history = [
+    {
+      action: 'created',
+      timestamp: now,
+      userId: request.auth.credentials.data.userId,
+      userName: request.auth.credentials.data.cn
+    }
+  ]
   messages.save(data, function(error, data) {
     if (error) {
       reply(error)
     } else {
-      reply.redirect('/')
+      reply.redirect('/?messageAdded=true')
+    }
+  })
+}
+
+function editMessage (request, reply) {
+  var messageID = mongojs.ObjectID(request.params.messageID)
+  var data = request.payload
+  var now = new Date().getTime()
+  var history = {
+    action: 'updated',
+    timestamp: now,
+    userId: request.auth.credentials.data.userId,
+    userName: request.auth.credentials.data.cn
+  }
+  var title = data.title
+  var description = data.description
+  var tags = Array.isArray(data.tags) ? data.tags : [data.tags]
+  var modified = now
+
+  messages.findOne({'_id': messageID}, function (error, document) {
+    if (error) {
+      reply(error)
+    } else {
+      console.log(document)
+      document.title = title
+      document.description = description
+      document.tags = tags
+      document.modified = modified
+      document.history.push(history)
+      messages.save(document, function (err, data) {
+        if (err) {
+          reply(err)
+        } else {
+          reply.redirect('/?messageUpdated=true')
+        }
+      })
+    }
+  })
+}
+
+function deleteMessage (request, reply) {
+  var messageID = mongojs.ObjectID(request.params.messageID)
+  messages.remove({'_id': messageID}, function(error, data) {
+    if (error) {
+      reply(error)
+    } else {
+      reply.redirect('/?messageDeleted=true')
     }
   })
 }
@@ -115,6 +171,10 @@ module.exports.showEditMessagePage = showEditMessagePage
 module.exports.getMessagesByTag = getMessagesByTag
 
 module.exports.addMessage = addMessage
+
+module.exports.editMessage = editMessage
+
+module.exports.deleteMessage = deleteMessage
 
 module.exports.markMessageAsRead = markMessageAsRead
 
