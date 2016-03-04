@@ -28,6 +28,14 @@ var routes = [
     }
   },
   {
+    method: 'GET',
+    path: '/messages/{messageID}/edit',
+    config: {
+      handler: messages.showEditMessagePage,
+      description: 'Show page for edit messages'
+    }
+  },
+  {
     method: 'POST',
     path: '/messages/{messageID}/markasread',
     config: {

@@ -40,9 +40,31 @@ function showAddMessagePage (request, reply) {
   reply.view('message-add', viewOptions)
 }
 
+function showEditMessagePage(request, reply) {
+  var messageID = mongojs.ObjectID(request.params.messageID)
+  messages.findOne({'_id': messageID}, function (error, document) {
+    if (error) {
+      reply(error)
+    } else {
+      console.log(document)
+      var viewOptions = {
+        version: pkg.version,
+        versionName: pkg.louie.versionName,
+        versionVideoUrl: pkg.louie.versionVideoUrl,
+        systemName: pkg.louie.systemName,
+        githubUrl: pkg.repository.url,
+        credentials: request.auth.credentials,
+        message: document
+      }
+      reply.view('message-edit', viewOptions)
+    }
+  })
+}
+
 function addMessage (request, reply) {
   var data = request.payload
   var now = new Date().getTime()
+  data.tags = Array.isArray(data.tags) ? data.tags : [data.tags]
   data.type = 'message'
   data.userId = request.auth.credentials.data.userId
   data.userName = request.auth.credentials.data.cn
@@ -87,6 +109,8 @@ function markMessageAsStarred (request, reply) {
 }
 
 module.exports.showAddMessagePage = showAddMessagePage
+
+module.exports.showEditMessagePage = showEditMessagePage
 
 module.exports.getMessagesByTag = getMessagesByTag
 
