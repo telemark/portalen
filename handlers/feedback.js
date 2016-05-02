@@ -1,14 +1,8 @@
 'use strict'
 
-var fs = require('fs')
-var mongojs = require('mongojs')
 var Wreck = require('wreck')
 var config = require('../config')
 var pkg = require('../package.json')
-var dbprofile = mongojs(config.DB_CONNECTION_PROFILE)
-var dbmessage = mongojs(config.DB_CONNECTION_MESSAGE)
-var profiles = dbprofile.collection('profiles')
-var messages = dbmessage.collection('messages')
 var wreckOptions = {
   json: true
 }
