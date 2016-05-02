@@ -80,7 +80,7 @@ function addMessage (request, reply) {
       userName: request.auth.credentials.data.cn
     }
   ]
-  messages.save(data, function(error, data) {
+  messages.save(data, function (error, data) {
     if (error) {
       reply(error)
     } else {
@@ -127,7 +127,7 @@ function editMessage (request, reply) {
 
 function deleteMessage (request, reply) {
   var messageID = mongojs.ObjectID(request.params.messageID)
-  messages.remove({'_id': messageID}, function(error, data) {
+  messages.remove({'_id': messageID}, function (error, data) {
     if (error) {
       reply(error)
     } else {
@@ -145,7 +145,7 @@ function markMessageAsRead (request, reply) {
     messageID: messageID,
     type: type
   }
-  messages.save(data, function(error, data) {
+  messages.save(data, function (error, data) {
     reply(error || 'Meldingen er fjernet fra listen din')
   })
 }
@@ -159,7 +159,7 @@ function markMessageAsStarred (request, reply) {
     messageID: messageID,
     type: type
   }
-  messages.save(data, function(error, data) {
+  messages.save(data, function (error, data) {
     reply(error || 'Meldingen er lagret som favoritt')
   })
 }

@@ -3,7 +3,7 @@
 var tap = require('tap')
 var handlers = require('../handlers/messages')
 
-tap.equal(Object.keys(handlers).length, 3, 'There are 3 different handlers for messages')
+tap.equal(Object.keys(handlers).length, 8, 'There are 8 different handlers for messages')
 
 tap.ok(handlers.getMessagesByTag, 'Handler has method getMessagesByTag')
 
