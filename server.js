@@ -8,11 +8,18 @@ var portalenService = require('./index')
 var validate = require('./lib/validateJWT')
 var validateAPI = require('./lib/validateAPI')
 var goodOptions = {
-  opsInterval: 1000,
-  reporters: [{
-    reporter: require('good-console'),
-    events: { log: '*', response: '*' }
-  }]
+  ops: {
+    interval: 1000
+  },
+  reporters: {
+    console: [{
+      module: 'good-squeeze',
+      name: 'Squeeze',
+      args: [{ log: '*', response: '*' }]
+    }, {
+      module: 'good-console'
+    }, 'stdout']
+  }
 }
 
 server.connection({
