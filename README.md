@@ -1,4 +1,6 @@
 # portalen
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/portalen.svg)](https://greenkeeper.io/)
 Forsiden på intranettet vårt
 
 ## Installasjon
