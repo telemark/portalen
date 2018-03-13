@@ -3,7 +3,6 @@ if (dev) {
   require('dotenv').config()
 }
 
-const os = require('os')
 const micro = require('micro')
 const { parse: urlParse } = require('url')
 const { setup, login, callback, logout } = require('./api')

@@ -44,3 +44,6 @@ package-lock.json
 
 # Env
 .env
+
+# Next
+.next
