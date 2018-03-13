@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import Session from '../components/Session'
 import Page from '../components/Page'
+import Links from '../components/Links'
 import NewsList from '../components/NewsList'
 import Shortcuts from '../components/Shortcuts'
 import getRoles from '../components/get-roles'
@@ -32,9 +33,9 @@ class Admin extends Component {
   render () {
     return (
       <Page username={this.props.user ? this.props.user.userPrincipalName : null}>
-        {this.state.user ? <h1>Hello {this.state.user.displayName}</h1> : null}
-        {this.state.roles ? JSON.stringify(this.state.roles) : null}
+        {!this.state.user ? <h1>Vennligst logg inn...</h1> : null}
         {this.state.roles ? <Shortcuts roles={this.state.roles} /> : null}
+        {this.state.roles ? <Links roles={this.state.roles} /> : null}
         {this.state.roles ? <NewsList roles={this.state.roles} /> : null}
       </Page>
     )

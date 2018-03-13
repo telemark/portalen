@@ -18,7 +18,23 @@ export default class Shortcuts extends Component {
 
   render () {
     return (
-      this.state.shortcuts ? this.state.shortcuts.map(item => <Shortcut data={item} />) : null
+      <div className={'shortcut-wrapper'}>
+        {this.state.shortcuts ? this.state.shortcuts.map(item => <Shortcut data={item} />) : null}
+        <style jsx>
+          {`
+            .shortcut-wrapper {
+              display: flex;
+              flex-flow: row wrap;
+              justify-content: space-evenly;
+            }
+            @media screen and (max-width: 600px) {
+              .shortcut-wrapper {
+                flex-direction: column;
+              }
+            }
+          `}
+        </style>
+      </div>
     )
   }
 }
