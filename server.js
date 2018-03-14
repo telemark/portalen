@@ -7,7 +7,7 @@ const micro = require('micro')
 const { parse: urlParse } = require('url')
 const { setup, login, callback, logout } = require('./api')
 const redirect = (res, location, statusCode = 302) => { res.statusCode = statusCode; res.setHeader('Location', location); res.end() }
-const { SESSION_KEY } = require('./secrets')
+const { SESSION_KEY } = require('./config')
 const session = require('micro-cookie-session')({
   name: 'session',
   keys: [SESSION_KEY],
@@ -39,7 +39,6 @@ const server = micro(async (req, res) => {
   } else if (pathname === '/api/callback') {
     try {
       const callbackData = await callback(req, res)
-      console.log(req.query.ip)
       req.session.data = callbackData.userProfile[0]
       redirect(res, '/')
     } catch (error) {
