@@ -18,7 +18,7 @@ export default class Links extends Component {
 
   render () {
     return (
-      this.state.links ? this.state.links.map((item, index) => <LinkItem data={item} key={index} />) : null
+      this.state.links && this.state.links.map((item, index) => <LinkItem data={item} key={index} />)
     )
   }
 }

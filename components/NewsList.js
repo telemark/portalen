@@ -18,8 +18,8 @@ export default class NewsList extends Component {
 
   render () {
     return (
-      <div className={'news-wrapper'}>
-        {this.state.news ? this.state.news.map((item, index) => <NewsItem data={item} key={index} />) : null}
+      <div className='news-wrapper'>
+        {this.state.news && this.state.news.map((item, index) => <NewsItem data={item} key={index} />)}
         <style jsx>
           {`
             .news-wrapper {

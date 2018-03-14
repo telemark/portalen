@@ -27,16 +27,17 @@ class Admin extends Component {
       this.setState({
         roles: roles
       })
+      console.log(this.props)
     }
   }
 
   render () {
     return (
       <Page username={this.props.user ? this.props.user.userPrincipalName : null}>
-        {!this.state.user ? <h1>Vennligst logg inn...</h1> : null}
-        {this.state.roles ? <Shortcuts roles={this.state.roles} /> : null}
-        {this.state.roles ? <Links roles={this.state.roles} /> : null}
-        {this.state.roles ? <NewsList roles={this.state.roles} /> : null}
+        {!this.state.user && <h1>Vennligst logg inn...</h1>}
+        {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
+        {this.state.roles && <Links roles={this.state.roles} />}
+        {this.state.roles && <NewsList roles={this.state.roles} />}
       </Page>
     )
   }

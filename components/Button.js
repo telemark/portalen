@@ -8,11 +8,7 @@ export default (props) => {
     value: props.value,
     type: props.type || 'button',
     name: props.name,
-    autoFocus: props.autoFocus,
-    'data-agenda-item': props.dataAgendaItem,
-    'data-agenda-now': props.dataAgendaNow,
-    'data-ref-id': props.dataRefId,
-    'data-show-state': props.dataShowState
+    autoFocus: props.autoFocus
   }
   return (
     <Fragment>

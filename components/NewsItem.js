@@ -1,5 +1,5 @@
 export default ({ data }) => (
-  <div className={'news-item'}>
+  <div className='news-item'>
     <h2>{data.title}</h2>
     <p dangerouslySetInnerHTML={{__html: data.summary}} />
     <a href={data.url} target='_blank'>Les mer</a>
