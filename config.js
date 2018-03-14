@@ -30,7 +30,8 @@ const config = {
   MAIL: process.env.MAIL || 'forslag@t-fk.no', // mail where suggestions are sent
   tenant_id: process.env.MOA_TENANT_ID || '<your-tenant-id>.onmicrosoft.com', // Your tenant ID
   client_id: process.env.MOA_CLIENT_ID || 'your-client-id', // Application ID in https://portal.azure.com/ -> Azure Active Directory -> App Registrations
-  client_secret: process.env.MOA_CLIENT_SECRET || 'your-password' // Registered app in  https://portal.azure.com/ -> Settings -> Keys
+  client_secret: process.env.MOA_CLIENT_SECRET || 'your-password', // Registered app in  https://portal.azure.com/ -> Settings -> Keys
+  SESSION_KEY: process.env.SESSION_KEY || 'Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go'
 }
 
 module.exports = {
