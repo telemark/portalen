@@ -18,7 +18,24 @@ export default class NewsList extends Component {
 
   render () {
     return (
-      this.state.news ? this.state.news.map(item => <NewsItem data={item} />) : null
+      <div className={'news-wrapper'}>
+        {this.state.news ? this.state.news.map((item, index) => <NewsItem data={item} key={index} />) : null}
+        <style jsx>
+          {`
+            .news-wrapper {
+              display: flex;
+              flex: 0 1 auto;
+              flex-wrap: wrap;
+              justify-content: space-evenly;
+            }
+            @media screen and (max-width: 600px) {
+              .news-wrapper {
+                flex-direction: column;
+              }
+            }
+          `}
+        </style>
+      </div>
     )
   }
 }

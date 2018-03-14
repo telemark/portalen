@@ -39,6 +39,7 @@ const server = micro(async (req, res) => {
   } else if (pathname === '/api/callback') {
     try {
       const callbackData = await callback(req, res)
+      console.log(req.query.ip)
       req.session.data = callbackData.userProfile[0]
       redirect(res, '/')
     } catch (error) {

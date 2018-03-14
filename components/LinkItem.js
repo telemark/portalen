@@ -1,7 +1,5 @@
 export default ({ data }) => (
   <div>
-    {data.title}
-    {data.description}
-    {data.url}
+    <a href={data.url} title={data.description} target={'_blank'}>{data.title}</a>
   </div>
 )

@@ -11,7 +11,8 @@ export default class Shortcuts extends Component {
   }
 
   async componentDidMount () {
-    const url = `https://shortcuts.portalen.win/shortcuts?roles=${this.props.roles.join('|')}`
+    const { data: client } = await axios('https://api.ipify.org?format=json')
+    const url = `https://shortcuts.portalen.win/shortcuts?roles=${this.props.roles.join('|')}&myIp=${client.ip}`
     const { data } = await axios.get(url)
     this.setState({shortcuts: data})
   }
@@ -19,12 +20,13 @@ export default class Shortcuts extends Component {
   render () {
     return (
       <div className={'shortcut-wrapper'}>
-        {this.state.shortcuts ? this.state.shortcuts.map(item => <Shortcut data={item} />) : null}
+        {this.state.shortcuts ? this.state.shortcuts.map((item, index) => <Shortcut data={item} key={index} />) : null}
         <style jsx>
           {`
             .shortcut-wrapper {
               display: flex;
-              flex-flow: row wrap;
+              flex: 0 1 auto;
+              flex-wrap: wrap;
               justify-content: space-evenly;
             }
             @media screen and (max-width: 600px) {
