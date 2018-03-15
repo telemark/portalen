@@ -5,14 +5,19 @@ export default class extends Component {
     const phrase = this.props.phrase
     return (
       <Fragment>
-        <h1>Søk: {phrase}</h1>
-        <div className='nav'>
-          <a href={`/sok?phrase=${phrase}`}>Alt innhold</a>
-          <a href={`/sok?phrase=${phrase}&faset=employees`}>Ansatte</a>
-          <a href={`/sok?phrase=${phrase}&faset=wwwtelemark`}>wwww.telemark.no</a>
-          <a href={`/sok?phrase=${phrase}&faset=portaleninfo`}>Infosider</a>
-        </div>
-        <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
+        { !phrase
+          ? <Fragment><h1>Søkeside</h1><p className='result-text'>Du har ennå ikke søkt etter noe</p></Fragment>
+          : <Fragment>
+            <h1>Søk: {phrase}</h1>
+            <div className='nav'>
+              <a href={`/search?phrase=${phrase}`}>Alt innhold</a>
+              <a href={`/search?phrase=${phrase}&faset=employees`}>Ansatte</a>
+              <a href={`/search?phrase=${phrase}&faset=wwwtelemark`}>wwww.telemark.no</a>
+              <a href={`/search?phrase=${phrase}&faset=portaleninfo`}>Infosider</a>
+            </div>
+            <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
+          </Fragment>
+        }
         <style jsx>
           {`
             .nav a {
