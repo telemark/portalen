@@ -22,10 +22,11 @@ class Sidebar extends Component {
         <style jsx>
           {`
             i {
-              color: #777777;
+              color: white;
               width: 100%;
               text-align: right;
               margin-right: 8px;
+              background: #797979;
             }
             .sidebar {
               height: 100%;
