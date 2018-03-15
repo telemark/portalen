@@ -45,8 +45,7 @@ class Admin extends Component {
         {this.state.sidebar && this.state.roles && <Links roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
-        {this.state.roles && <Links roles={this.state.roles} />}
-        <div className={'content-wrapper'}>
+        <div className='content-wrapper'>
           <div>
             {this.state.user && <Tasks />}
           </div>

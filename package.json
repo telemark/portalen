@@ -69,7 +69,7 @@
   },
   "now": {
     "name": "portalen",
-    "alias": "portalen.t-fk.no",
+    "alias": "www.portalen.win",
     "type": "npm",
     "engines": {
       "node": "8.10.0"

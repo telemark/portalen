@@ -44,7 +44,6 @@ export default ({ children }) => (
         }
         a:hover {
           color: ${COLORS.secondaryLight};
-          text-decoration: underline;
         }
         .container {
           display: grid;
