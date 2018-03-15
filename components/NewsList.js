@@ -26,7 +26,6 @@ export default class NewsList extends Component {
               display: flex;
               flex: 0 1 auto;
               flex-wrap: wrap;
-              justify-content: space-evenly;
             }
             @media screen and (max-width: 600px) {
               .news-wrapper {
