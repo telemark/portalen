@@ -45,8 +45,8 @@ class Admin extends Component {
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         <div className='content-wrapper'>
-            {this.state.user && <Tasks />}
-            {this.state.roles && <NewsList roles={this.state.roles} />}
+          {this.state.user && <Tasks />}
+          {this.state.roles && <NewsList roles={this.state.roles} />}
         </div>
         <style jsx>
           {`

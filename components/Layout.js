@@ -37,6 +37,13 @@ export default ({ children }) => (
           -webkit-margin-after: auto;
           font-weight: normal;
         }
+        h4 {
+          font-size: 20px;
+          line-height: 1;
+          font-weight: 400;
+          font-family: Arial, sans-serif;
+          margin: 0;
+        }
         a {
           text-decoration: none;
           cursor: pointer;

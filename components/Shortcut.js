@@ -20,13 +20,6 @@ export default ({ data }) => (
           color: #999;
           font-size: 13px;
         }
-        h4 {
-          font-size: 20px;
-          line-height: 1;
-          font-weight: 400;
-          font-family: Arial, sans-serif;
-          margin: 0;
-        }
       `}
     </style>
   </a>
