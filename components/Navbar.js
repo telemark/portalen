@@ -46,12 +46,12 @@ export default ({ username = false, toggleSidebar }) => (
           <DropDownMenu>
             {
               menuLinks.map(link =>
-                <div key={link.name} className='menu'>
-                  <a href={link.href}>
+                <a href={link.href}>
+                  <div key={link.name} className='menu'>
                     <i className='material-icons'>{link.icon}</i>
                     {link.name}
-                  </a>
-                </div>
+                  </div>
+                </a>
               )
             }
           </DropDownMenu>
@@ -69,7 +69,7 @@ export default ({ username = false, toggleSidebar }) => (
         font-size: 20px !important;
       }
       a {
-        text-transform: uppercase;
+        text-transform: none;
       }
       .menu {
         border-bottom: 1px solid #d6d6d6;
@@ -77,9 +77,6 @@ export default ({ username = false, toggleSidebar }) => (
         width: 100%;
         text-align: left;
         min-width: 190px;
-      }
-      .menu a {
-        text-transform: none;
       }
       .menu i {
         margin-right: 20px;
