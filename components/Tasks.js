@@ -22,7 +22,7 @@ export default class Tasks extends Component {
         {
           this.state.tasks && this.state.tasks.length < 0
             ? this.state.tasks.map((item, index) => <Task data={item} key={index} />)
-            : <Fragment><i className='material-icons'>tag_faces</i> Du har ingen oppgaver.</Fragment>
+            : <Fragment><i style={{ marginRight: '22px' }} className='material-icons'>tag_faces</i> Du har ingen oppgaver.</Fragment>
         }
         <style jsx>
           {`

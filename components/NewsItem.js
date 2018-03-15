@@ -1,7 +1,7 @@
 export default ({ data }) => (
   <div className='news-item'>
     <h4>{data.title}</h4>
-    <p style={{ fontSize: '14px' }} dangerouslySetInnerHTML={{__html: data.summary}} />
+    <p style={{ fontSize: '14px', lineHeight: '24px' }} dangerouslySetInnerHTML={{__html: data.summary}} />
     <a className='button' href={data.url} target='_blank'>Les mer</a>
     <style jsx>
       {`
