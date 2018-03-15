@@ -6,6 +6,7 @@ export default ({ data }) => (
     <style jsx>
       {`
         .news-item {
+          text-align: left;
           padding: 10px;
           border-radius: 0;
           background-color: #FFF;
