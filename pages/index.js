@@ -5,7 +5,7 @@ import Links from '../components/Links'
 import NewsList from '../components/NewsList'
 import Shortcuts from '../components/Shortcuts'
 import Tasks from '../components/Tasks'
-import getRoles from '../components/get-roles'
+import getRoles from '../lib/get-roles'
 
 class Admin extends Component {
   constructor (props) {

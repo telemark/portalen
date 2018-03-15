@@ -1,6 +1,5 @@
-import { Component } from 'react'
+import { Component, Fragment } from 'react'
 import Task from './Task'
-import NoTasks from './NoTasks'
 const axios = require('axios')
 
 export default class Tasks extends Component {
@@ -20,8 +19,11 @@ export default class Tasks extends Component {
     return (
       <div className='tasks-wrapper'>
         <h1>Dine oppgaver</h1>
-        {this.state.tasks && this.state.tasks.map((item, index) => <Task data={item} key={index} />)}
-        {this.state.tasks && this.state.tasks.length === 0 && <NoTasks />}
+        {
+          this.state.tasks && this.state.tasks.length < 0
+            ? this.state.tasks.map((item, index) => <Task data={item} key={index} />)
+            : <Fragment><i className='material-icons'>tag_faces</i> Du har ingen oppgaver.</Fragment>
+        }
         <style jsx>
           {`
             .tasks-wrapper {

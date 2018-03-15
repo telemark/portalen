@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Minified by jsDelivr using UglifyJS v3.1.10.
  * Original file: /npm/string.startswith-polyfill@1.0.1/string.startsWith.js
