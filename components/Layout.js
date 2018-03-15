@@ -8,7 +8,7 @@ export default ({ children }) => (
       <link rel='icon' sizes='192x192' href={COMPANY.icon192x192} />
       <link rel='apple-touch-icon' href={COMPANY.icon152x152} />
       <link rel='shortcut icon' href={COMPANY.favicon} />
-      <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700,800' rel='stylesheet' />
+      <link rel='stylesheet' href='//fonts.googleapis.com/icon?family=Material+Icons' />
       <title>{COMPANY.name} - {APP.name} - {APP.version}</title>
     </Head>
     { children }

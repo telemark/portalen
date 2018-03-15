@@ -1,7 +1,7 @@
 export default ({ data }) => (
   <a href={data.url} target='_blank'>
     <div className='shortcut'>
-      <span>{data.icon}</span>
+      <i className='material-icons'>{data.icon}</i>
       <h2>{data.title}</h2>
       <p>{data.description}</p>
     </div>
