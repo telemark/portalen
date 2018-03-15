@@ -19,8 +19,7 @@ export default class SearchField extends Component {
       <Fragment>
         <div style={{ display: 'inline-flex' }}>
           {
-            this.state.search &&
-            <input type='text' className='searchbar' placeholder='Søk' />
+            this.state.search && <input type='text' className='searchbar' placeholder='Søk' autoFocus />
           }
           <a onClick={this.toggleSearch}>
             <i className='material-icons'>search</i>
