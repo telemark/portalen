@@ -1,4 +1,5 @@
 import DropDownMenu from './DropDownMenu'
+import SearchField from './SearchField'
 import { COMPANY, COLORS, APP } from '../config'
 
 export default ({ username = false, toggleSidebar }) => (
@@ -21,7 +22,7 @@ export default ({ username = false, toggleSidebar }) => (
     { username
       ? <ul className='right'>
         <li>
-          <i className='material-icons'>search</i>
+          <SearchField />
         </li>
         <li>
           <DropDownMenu>

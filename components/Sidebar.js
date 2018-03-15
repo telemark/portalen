@@ -22,7 +22,6 @@ export default ({ toggleSidebar, children }) => (
             z-index: 1;
             top: 0;
             left: 0;
-            opacity: 1;
             background-color: white;
             overflow-x: hidden;
             overflow-y: auto;
