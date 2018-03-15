@@ -39,6 +39,7 @@ export default ({ children }) => (
         }
         a {
           text-decoration: none;
+          cursor: pointer;
           color: ${COLORS.secondary};
         }
         a:hover {
