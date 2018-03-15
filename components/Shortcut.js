@@ -2,8 +2,8 @@ export default ({ data }) => (
   <a href={data.url} target='_blank'>
     <div className='shortcut'>
       <i className='material-icons'>{data.icon}</i>
-      <h2>{data.title}</h2>
-      <p>{data.description}</p>
+      <h4>{data.title}</h4>
+      <div className='description'>{data.description}</div>
     </div>
     <style jsx>
       {`
@@ -11,13 +11,21 @@ export default ({ data }) => (
           text-decoration: none;
         }
         .shortcut {
-          display: inline-block;
-          padding: 10px;
-          border-radius: 0;
+          padding: 15px;
           background-color: #FFF;
           box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
-          margin: 5px;
-          width: 300px;
+          min-height: 80px;
+        }
+        .description {
+          color: #999;
+          font-size: 13px;
+        }
+        h4 {
+          font-size: 20px;
+          line-height: 1;
+          font-weight: 400;
+          font-family: Arial, sans-serif;
+          margin: 0;
         }
       `}
     </style>

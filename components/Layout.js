@@ -51,7 +51,7 @@ export default ({ children }) => (
             "header header header"
             ". content ."
             "footer footer footer";
-          grid-template-columns: 1fr 2fr 1fr;
+          grid-template-columns: 20px auto 20px;
           grid-template-rows: auto 1fr auto;
         }
         .center {
@@ -59,10 +59,6 @@ export default ({ children }) => (
           align-items: center;
           justify-content: center;
         }
-        @media screen and (max-width: 800px) {
-          .container {
-            grid-template-columns: 3% 1fr 3%;
-          }
       `}
     </style>
   </div>

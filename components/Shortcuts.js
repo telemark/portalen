@@ -25,15 +25,10 @@ export default class Shortcuts extends Component {
         <style jsx>
           {`
             .shortcut-wrapper {
-              display: flex;
-              flex: 0 1 auto;
-              flex-wrap: wrap;
-              justify-content: space-evenly;
-            }
-            @media screen and (max-width: 600px) {
-              .shortcut-wrapper {
-                flex-direction: column;
-              }
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              grid-column-gap: 10px;
+              grid-row-gap: 10px;
             }
           `}
         </style>
