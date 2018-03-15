@@ -9,7 +9,7 @@ export default ({ children }) => (
       <link rel='apple-touch-icon' href={COMPANY.icon152x152} />
       <link rel='shortcut icon' href={COMPANY.favicon} />
       <link rel='stylesheet' href='//fonts.googleapis.com/icon?family=Material+Icons' />
-      <script type='text/javascript' src='https://raw.githubusercontent.com/FremyCompany/css-grid-polyfill/master/bin/css-polyfills.min.js' />
+      <script type='text/javascript' src='/static/startsWith.polyfill.js' />
       <title>{COMPANY.name} - {APP.name} - {APP.version}</title>
     </Head>
     { children }
