@@ -19,7 +19,7 @@ export default class Links extends Component {
 
   render () {
     return (
-      <Sidebar>
+      <Sidebar toggleSidebar={this.props.toggleSidebar}>
         { this.state.links && this.state.links.map((item, index) => <LinkItem data={item} key={index} />)}
       </Sidebar>
     )

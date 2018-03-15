@@ -42,7 +42,7 @@ class Admin extends Component {
   render () {
     return (
       <Page username={this.state.user} toggleSidebar={this.toggleSidebar}>
-        {this.state.sidebar && this.state.roles && <Links roles={this.state.roles} />}
+        {this.state.sidebar && this.state.roles && <Links roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         {this.state.roles && <NewsList roles={this.state.roles} />}
