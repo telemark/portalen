@@ -2,6 +2,24 @@ import DropDownMenu from './DropDownMenu'
 import SearchField from './SearchField'
 import { COMPANY, COLORS, APP } from '../config'
 
+const menuLinks = [
+  {
+    href: '/profile',
+    icon: 'account_circle',
+    name: 'Profil'
+  },
+  {
+    href: '/settings',
+    icon: 'settings',
+    name: 'Innstillinger'
+  },
+  {
+    href: '/api/logout',
+    icon: 'account_circle',
+    name: 'Logg ut'
+  }
+]
+
 export default ({ username = false, toggleSidebar }) => (
   <nav>
     <ul className='left'>
@@ -26,8 +44,16 @@ export default ({ username = false, toggleSidebar }) => (
         </li>
         <li>
           <DropDownMenu>
-            <div className='menu'><a href='/profile'>Profil</a></div>
-            <div className='menu'><a href='/api/logout'>Logg ut</a></div>
+            {
+              menuLinks.map(link =>
+                <div className='menu'>
+                  <a href={link.href}>
+                    <i className='material-icons'>{link.icon}</i>
+                    {link.name}
+                  </a>
+                </div>
+              )
+            }
           </DropDownMenu>
         </li>
       </ul>
@@ -48,6 +74,16 @@ export default ({ username = false, toggleSidebar }) => (
       .menu {
         border-bottom: 1px solid #d6d6d6;
         line-height: 50px;
+        width: 100%;
+        text-align: left;
+        min-width: 190px;
+      }
+      .menu a {
+        text-transform: none;
+      }
+      .menu i {
+        margin-right: 20px;
+        margin-left: 5px;
       }
       .menu:hover, .menu:hover a {
         background: ${COLORS.secondary};
