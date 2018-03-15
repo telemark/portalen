@@ -30,7 +30,7 @@
     "build": "next build",
     "start": "node server.js",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
-    "deploy": "now && now alias"
+    "deploy": "now -E production.env && now alias"
   },
   "keywords": [
     "Louie",
