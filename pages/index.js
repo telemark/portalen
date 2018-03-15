@@ -30,7 +30,6 @@ class Admin extends Component {
       this.setState({
         roles: roles
       })
-      console.log(this.props)
     }
   }
 

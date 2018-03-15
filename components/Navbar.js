@@ -46,7 +46,7 @@ export default ({ username = false, toggleSidebar }) => (
           <DropDownMenu>
             {
               menuLinks.map(link =>
-                <div className='menu'>
+                <div key={link.name} className='menu'>
                   <a href={link.href}>
                     <i className='material-icons'>{link.icon}</i>
                     {link.name}
