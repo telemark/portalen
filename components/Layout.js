@@ -58,7 +58,7 @@ export default ({ children }) => (
             "header header header"
             ". content ."
             "footer footer footer";
-          grid-template-columns: 20px auto 20px;
+          grid-template-columns: 30px auto 30px;
           grid-template-rows: auto 1fr auto;
         }
         .center {

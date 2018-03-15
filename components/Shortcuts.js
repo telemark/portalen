@@ -27,8 +27,8 @@ export default class Shortcuts extends Component {
             .shortcut-wrapper {
               display: grid;
               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              grid-column-gap: 10px;
-              grid-row-gap: 10px;
+              grid-column-gap: 14px;
+              grid-row-gap: 14px;
             }
           `}
         </style>

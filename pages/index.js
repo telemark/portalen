@@ -53,9 +53,9 @@ class Admin extends Component {
             .content-wrapper {
               display: grid;
               grid-template-columns: 1fr 1fr;
-              grid-column-gap: 10px;
-              grid-row-gap: 10px;
-              margin-top: 10px;
+              grid-column-gap: 14px;
+              grid-row-gap: 14px;
+              margin-top: 14px;
               grid-auto-rows: min-content;
             }
             @media screen and (max-width: 800px) {
