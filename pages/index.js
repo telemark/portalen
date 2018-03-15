@@ -48,7 +48,7 @@ class Admin extends Component {
         {this.state.roles && <Links roles={this.state.roles} />}
         <div className={'content-wrapper'}>
           <div>
-            {this.state.roles && <Tasks />}
+            {this.state.user && <Tasks />}
           </div>
           <div>
             {this.state.roles && <NewsList roles={this.state.roles} />}

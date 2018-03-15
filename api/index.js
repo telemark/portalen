@@ -125,16 +125,18 @@ exports.callback = async (req, res) => {
 }
 
 exports.getTasks = async (request, response) => {
-  const user = request.session && request.session.data && request.session.data.user ? request.session.data.userPrincipalName : false
+  const user = request.session && request.session.data ? request.session.data.userPrincipalName : false
   let result = []
   if (user) {
+    const id = user.split('@')[0]
     const token = generateSystemToken(config.tasks_jwt_secret)
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-    const url = `${config.tasks_service}/${user}`
-    log('info', `Retreiving tasks for ${user}`)
+    const url = `${config.tasks_service}/${id}`
+    log('info', `Retreiving tasks for ${user} - ${id}`)
     try {
       const { data } = await axios.get(url)
-      result = data
+      log('info', data)
+      result = data.data
     } catch (error) {
       log('error', error)
     }

@@ -23,11 +23,7 @@ export default class Tasks extends Component {
         <style jsx>
           {`
             .tasks-wrapper {
-              display: flex;
-              flex: 0 1 auto;
-              flex-wrap: wrap;
-              justify-content: space-evenly;
-              display: inline-block;
+              text-align: left;
               padding: 10px;
               border-radius: 0;
               background-color: #FFF;
