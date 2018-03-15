@@ -25,12 +25,11 @@ const config = {
     secondaryLight: process.env.COLOR_SECONDARY_LIGHT || '#2c2c2c',
     secondaryDark: process.env.COLOR_SECONDARY_DARK || '#000000'
   },
-  OPENGOV_URL: process.env.OPENGOV_URL || 'http://opengov.cloudapp.net', // URL to opengov
-  OPENGOV_PATH: process.env.OPENGOV_PATH || '/Meetings/tfk', // Path to opengov meetings
-  MAIL: process.env.MAIL || 'forslag@t-fk.no', // mail where suggestions are sent
   tenant_id: process.env.MOA_TENANT_ID || '<your-tenant-id>.onmicrosoft.com', // Your tenant ID
   client_id: process.env.MOA_CLIENT_ID || 'your-client-id', // Application ID in https://portal.azure.com/ -> Azure Active Directory -> App Registrations
-  client_secret: process.env.MOA_CLIENT_SECRET || 'your-password', // Registered app in  https://portal.azure.com/ -> Settings -> Keys
+  client_secret: process.env.MOA_CLIENT_SECRET || 'your-password', // Registered app in  https://portal.azure.com/ -> Settings -> Keys,
+  tasks_jwt_secret: process.env.TASKS_JWT_SECRET || 'Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go', // JWT secret for tasks service
+  tasks_service: process.env.TASKS_SERVICE || 'https://tasks.com/api', // URL for tasks service
   SESSION_KEY: process.env.SESSION_KEY || 'Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go'
 }
 

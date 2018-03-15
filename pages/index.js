@@ -4,6 +4,7 @@ import Page from '../components/Page'
 import Links from '../components/Links'
 import NewsList from '../components/NewsList'
 import Shortcuts from '../components/Shortcuts'
+import Tasks from '../components/Tasks'
 import getRoles from '../components/get-roles'
 
 class Admin extends Component {
@@ -38,6 +39,7 @@ class Admin extends Component {
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         {this.state.roles && <Links roles={this.state.roles} />}
         {this.state.roles && <NewsList roles={this.state.roles} />}
+        {this.state.roles && <Tasks />}
       </Page>
     )
   }

@@ -13,6 +13,18 @@ function log (level, message) {
   }
 }
 
+function generateSystemToken (secret) {
+  const payload = {
+    system: pkg.name,
+    version: pkg.version
+  }
+  const options = {
+    expiresIn: '1m',
+    issuer: 'https://auth.t-fk.no'
+  }
+  return jwt.sign(payload, secret, options)
+}
+
 exports.setup = async (handler) => {
   try {
     log('info', `Requesting metadata from ${config.autodiscover_url}`)
@@ -110,4 +122,24 @@ exports.callback = async (req, res) => {
   } catch (error) {
     throw error
   }
+}
+
+exports.getTasks = async (request, response) => {
+  const user = request.session && request.session.data && request.session.data.user ? request.session.data.userPrincipalName : false
+  let result = []
+  if (user) {
+    const token = generateSystemToken(config.tasks_jwt_secret)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    const url = `${config.tasks_service}/${user}`
+    log('info', `Retreiving tasks for ${user}`)
+    try {
+      const { data } = await axios.get(url)
+      result = data
+    } catch (error) {
+      log('error', error)
+    }
+  } else {
+    log('info', 'No user in session')
+  }
+  return result
 }
