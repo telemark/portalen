@@ -9,6 +9,7 @@ export default class Links extends Component {
     this.state = {
       links: []
     }
+    console.log(this.props)
   }
 
   async componentDidMount () {
