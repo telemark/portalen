@@ -27,7 +27,6 @@ export default class Tasks extends Component {
         <style jsx>
           {`
             .tasks-wrapper {
-              display: inline-table;
               text-align: left;
               padding: 10px;
               border-radius: 0;

@@ -6,6 +6,7 @@ import NewsList from '../components/NewsList'
 import Shortcuts from '../components/Shortcuts'
 import Tasks from '../components/Tasks'
 import getRoles from '../lib/get-roles'
+import Messages from '../components/Messages'
 
 class Admin extends Component {
   constructor (props) {
@@ -45,7 +46,7 @@ class Admin extends Component {
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         <div className='content-wrapper'>
-          {this.state.user && <Tasks />}
+          {this.state.user && <div><Tasks /><Messages /></div>}
           {this.state.roles && <NewsList roles={this.state.roles} />}
         </div>
         <style jsx>
