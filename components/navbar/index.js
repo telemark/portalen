@@ -1,6 +1,6 @@
 import DropDownMenu from './DropDownMenu'
 import SearchField from './SearchField'
-import { COMPANY, COLORS, APP } from '../config'
+import { COMPANY, COLORS, APP } from '../../config'
 
 const menuLinks = [
   {

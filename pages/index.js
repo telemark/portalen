@@ -1,12 +1,12 @@
 import { Component } from 'react'
 import Session from '../components/Session'
 import Page from '../components/Page'
-import Links from '../components/Links'
-import NewsList from '../components/NewsList'
-import Shortcuts from '../components/Shortcuts'
-import Tasks from '../components/Tasks'
+import Sidebar from '../components/sidebar'
+import NewsList from '../components/news'
+import Shortcuts from '../components/shortcuts'
+import Tasks from '../components/tasks'
 import getRoles from '../lib/get-roles'
-import Messages from '../components/Messages'
+import Messages from '../components/messages'
 
 class Admin extends Component {
   constructor (props) {
@@ -42,7 +42,7 @@ class Admin extends Component {
   render () {
     return (
       <Page username={this.state.user} toggleSidebar={this.toggleSidebar}>
-        {this.state.sidebar && this.state.roles && <Links roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
+        {this.state.sidebar && this.state.roles && <Sidebar roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         <div className='content-wrapper'>

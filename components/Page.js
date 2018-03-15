@@ -1,12 +1,22 @@
 import Layout from './Layout'
-import Navbar from './Navbar'
-import Main from './Main'
+import Navbar from './navbar'
 
 export default ({ username, toggleSidebar, children }) => (
   <Layout>
     <Navbar username={username} toggleSidebar={toggleSidebar} />
-    <Main>
+    <div className='main'>
       { children }
-    </Main>
+    </div>
+    <style jsx>
+      {`
+        .main {
+          grid-area: content;
+          padding-bottom: 50px;
+          margin: auto;
+          width: 100%;
+          height: 100%;
+        }
+      `}
+    </style>
   </Layout>
 )

@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import iconMapper from '../lib/task-icon-mapper'
+import iconMapper from '../../lib/task-icon-mapper'
 
 export default ({ data }) => (
   <Fragment>
