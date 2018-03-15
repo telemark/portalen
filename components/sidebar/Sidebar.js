@@ -11,13 +11,9 @@ class Sidebar extends Component {
     this.props.toggleSidebar()
   }
   render () {
-    const toggleSidebar = this.props.toggleSidebar
     const children = this.props.children
     return (
       <div className='sidebar' ref='sidebar'>
-        <a onClick={toggleSidebar}>
-          <i className='material-icons'>close</i>
-        </a>
         {children}
         <style jsx>
           {`
@@ -25,9 +21,9 @@ class Sidebar extends Component {
               color: #777777;
               width: 100%;
               text-align: right;
-              margin-right: 8px;
             }
             .sidebar {
+              padding: 10px;
               height: 100%;
               width: 256px;
               position: fixed;
@@ -37,6 +33,7 @@ class Sidebar extends Component {
               background-color: white;
               overflow-x: hidden;
               overflow-y: auto;
+              box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
             }
         `}
         </style>
