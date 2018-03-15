@@ -18,8 +18,10 @@ class Admin extends Component {
       adminView: true,
       activeAgendaId: false,
       activeForslagId: false,
-      roles: false
+      roles: false,
+      sidebar: false
     }
+    this.toggleSidebar = this.toggleSidebar.bind(this)
   }
 
   async componentDidMount () {
@@ -32,9 +34,15 @@ class Admin extends Component {
     }
   }
 
+  toggleSidebar () {
+    const newState = !this.state.sidebar
+    this.setState({ sidebar: newState })
+  }
+
   render () {
     return (
-      <Page username={this.props.user ? this.props.user.userPrincipalName : null}>
+      <Page username={this.state.user} toggleSidebar={this.toggleSidebar}>
+        {this.state.sidebar && this.state.roles && <Links roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         {this.state.roles && <Links roles={this.state.roles} />}

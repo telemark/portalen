@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Sidebar from './Sidebar'
 import LinkItem from './LinkItem'
 const axios = require('axios')
 
@@ -18,7 +19,9 @@ export default class Links extends Component {
 
   render () {
     return (
-      this.state.links && this.state.links.map((item, index) => <LinkItem data={item} key={index} />)
+      <Sidebar toggleSidebar={this.props.toggleSidebar}>
+        { this.state.links && this.state.links.map((item, index) => <LinkItem data={item} key={index} />)}
+      </Sidebar>
     )
   }
 }

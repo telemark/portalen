@@ -27,7 +27,7 @@ export default class extends React.Component {
   render () {
     return (
       <div className='menu' ref={node => { this.node = node }}>
-        <a onClick={this.handleClick}>{this.props.name}</a>
+        <a onClick={this.handleClick}><i className='material-icons'>more_vert</i></a>
         {
           this.state.isOpen &&
             <div className='menu-content'>
@@ -52,6 +52,9 @@ export default class extends React.Component {
               top: 40px;
               text-align: center;
               border-radius: 2px;
+            }
+            i {
+              font-size: 20px !important;
             }
           `}
         </style>

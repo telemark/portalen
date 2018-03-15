@@ -1,12 +1,15 @@
 import DropDownMenu from './DropDownMenu'
 import { COMPANY, COLORS, APP } from '../config'
 
-export default ({ username = false }) => (
+export default ({ username = false, toggleSidebar }) => (
   <nav>
     <ul className='left'>
       <li>
+        <a onClick={toggleSidebar}>
+          <i className='material-icons' style={{ verticalAlign: 'super' }}>menu</i>
+        </a>
         <a href='/'>
-          <img style={{ width: '36px' }} src={COMPANY.logo} />
+          <img className='logo' src={COMPANY.logo} />
         </a>
       </li>
       <li>
@@ -17,22 +20,26 @@ export default ({ username = false }) => (
     </ul>
     { username
       ? <ul className='right'>
-        <li><a href='/'>Forsiden</a></li>
         <li>
-          <DropDownMenu name={username}>
+          <i className='material-icons'>search</i>
+        </li>
+        <li>
+          <DropDownMenu>
             <div className='menu'><a href='/profile'>Profil</a></div>
             <div className='menu'><a href='/api/logout'>Logg ut</a></div>
           </DropDownMenu>
         </li>
       </ul>
       : <ul className='right'>
-        <li><a href='/'>Forsiden</a></li>
         <li><a href='/api/login'>Logg inn</a></li>
       </ul>
     }
     <style jsx>{`
       img {
         width: 36px;
+      }
+      i {
+        font-size: 20px !important;
       }
       a {
         text-transform: uppercase;
@@ -64,6 +71,7 @@ export default ({ username = false }) => (
       }
       ul.left {
         justify-content: flex-start;
+        margin-left: 24px;
       }
       ul.right {
         justify-content: flex-end;
@@ -73,10 +81,15 @@ export default ({ username = false }) => (
         margin: 10px;
         align-self: center;
       }
+      .logo {
+        width: 36px;
+        margin-left: 10px;
+      }
       @media screen and (max-width: 800px) {
         .app-name {
           display: none;
         }
+      }
     `}
     </style>
   </nav>
