@@ -2,7 +2,9 @@ import { Component, Fragment } from 'react'
 
 export default class extends Component {
   render () {
-    const phrase = this.props.phrase
+    const { phrase } = this.props
+    const searchUrl = `/search?phrase=${phrase}`
+    const { faset } = this.props
     return (
       <Fragment>
         { !phrase
@@ -10,10 +12,10 @@ export default class extends Component {
           : <Fragment>
             <h1>Søk: {phrase}</h1>
             <div className='nav'>
-              <a href={`/search?phrase=${phrase}`}>Alt innhold</a>
-              <a href={`/search?phrase=${phrase}&faset=employees`}>Ansatte</a>
-              <a href={`/search?phrase=${phrase}&faset=wwwtelemark`}>wwww.telemark.no</a>
-              <a href={`/search?phrase=${phrase}&faset=portaleninfo`}>Infosider</a>
+              <a href={searchUrl}>Alt innhold</a>
+              <a href={`${searchUrl}&faset=employees`}>Ansatte</a>
+              <a href={`${searchUrl}&faset=wwwtelemark`}>wwww.telemark.no</a>
+              <a href={`${searchUrl}&faset=portaleninfo`}>Infosider</a>
             </div>
             <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
           </Fragment>

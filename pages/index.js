@@ -12,13 +12,6 @@ class Admin extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      user: this.props.user,
-      meeting: false,
-      updating: false,
-      doAddForslag: false,
-      adminView: true,
-      activeAgendaId: false,
-      activeForslagId: false,
       roles: false,
       sidebar: false
     }
@@ -26,11 +19,9 @@ class Admin extends Component {
   }
 
   async componentDidMount () {
-    if (this.state.user) {
-      const roles = await getRoles(this.state.user.companyName)
-      this.setState({
-        roles: roles
-      })
+    if (this.props.user) {
+      const roles = await getRoles(this.props.user.companyName)
+      this.setState({ roles })
     }
   }
 
@@ -41,12 +32,12 @@ class Admin extends Component {
 
   render () {
     return (
-      <Page username={this.state.user} toggleSidebar={this.toggleSidebar}>
+      <Page username={this.props.user} toggleSidebar={this.toggleSidebar}>
         {this.state.sidebar && this.state.roles && <Sidebar roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
-        {!this.state.user && <h1>Vennligst logg inn...</h1>}
+        {!this.props.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         <div className='content-wrapper'>
-          {this.state.user && <div><Tasks /><Messages /></div>}
+          {this.props.user && <div><Tasks /><Messages /></div>}
           {this.state.roles && <NewsList roles={this.state.roles} />}
         </div>
         <style jsx>
