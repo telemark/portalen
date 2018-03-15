@@ -3,7 +3,7 @@ import iconMapper from './task-icon-mapper'
 
 export default ({ data }) => (
   <Fragment>
-    <a href={data.url} target='_blank'><i className={'material-icons'}>{iconMapper(data.systemid)}</i> {data.title}</a>
+    <a href={data.url} target='_blank'><i className='material-icons'>{iconMapper(data.systemid)}</i> {data.title}</a>
     <style jsx>
       {`
         a {
