@@ -45,8 +45,32 @@ class Admin extends Component {
         {this.state.sidebar && this.state.roles && <Links roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
-        {this.state.roles && <NewsList roles={this.state.roles} />}
-        {this.state.roles && <Tasks />}
+        {this.state.roles && <Links roles={this.state.roles} />}
+        <div className={'content-wrapper'}>
+          <div>
+            {this.state.roles && <Tasks />}
+          </div>
+          <div>
+            {this.state.roles && <NewsList roles={this.state.roles} />}
+          </div>
+        </div>
+        <style jsx>
+          {`
+            .content-wrapper {
+              display: flex;
+            }
+            .content-wrapper > div {
+              flex: 1;
+              padding: 10px;
+              margin: 5px;
+            }
+            @media screen and (max-width: 800px) {
+              .content-wrapper {
+                flex-direction: column;
+              }
+            }
+          `}
+        </style>
       </Page>
     )
   }
