@@ -45,26 +45,22 @@ class Admin extends Component {
         {!this.state.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         <div className='content-wrapper'>
-          <div>
             {this.state.user && <Tasks />}
-          </div>
-          <div>
             {this.state.roles && <NewsList roles={this.state.roles} />}
-          </div>
         </div>
         <style jsx>
           {`
             .content-wrapper {
-              display: flex;
-            }
-            .content-wrapper > div {
-              flex: 1;
-              padding: 10px;
-              margin: 5px;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-column-gap: 10px;
+              grid-row-gap: 10px;
+              margin-top: 10px;
+              grid-auto-rows: min-content;
             }
             @media screen and (max-width: 800px) {
               .content-wrapper {
-                flex-direction: column;
+                grid-template-columns: auto;
               }
             }
           `}

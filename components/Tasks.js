@@ -25,18 +25,12 @@ export default class Tasks extends Component {
         <style jsx>
           {`
             .tasks-wrapper {
+              display: inline-table;
               text-align: left;
               padding: 10px;
               border-radius: 0;
               background-color: #FFF;
               box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
-              margin: 5px;
-              width: 100%;
-            }
-            @media screen and (max-width: 600px) {
-              .tasks-wrapper {
-                flex-direction: column;
-              }
             }
           `}
         </style>

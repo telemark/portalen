@@ -23,14 +23,9 @@ export default class NewsList extends Component {
         <style jsx>
           {`
             .news-wrapper {
-              display: flex;
-              flex: 0 1 auto;
-              flex-wrap: wrap;
-            }
-            @media screen and (max-width: 600px) {
-              .news-wrapper {
-                flex-direction: column;
-              }
+              display: grid;
+              grid-column-gap: 10px;
+              grid-row-gap: 10px;
             }
           `}
         </style>
