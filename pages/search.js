@@ -6,14 +6,13 @@ import Search from '../components/Search'
 class SearchPage extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-    }
+    this.state = {}
   }
 
   render () {
     return (
-      <Page username={this.state.user} toggleSidebar={this.toggleSidebar}>
-        <Search />
+      <Page username={this.props.user} toggleSidebar={this.toggleSidebar}>
+        <Search phrase={this.props.url.query.phrase} />
         <style jsx>
           {`
             .content-wrapper {

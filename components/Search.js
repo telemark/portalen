@@ -2,16 +2,17 @@ import { Component, Fragment } from 'react'
 
 export default class extends Component {
   render () {
+    const phrase = this.props.phrase
     return (
       <Fragment>
-        <h1>Søk: ---</h1>
+        <h1>Søk: {phrase}</h1>
         <div className='nav'>
-          <a href='/sok?phrase=asd'>Alt innhold</a>
-          <a href='/sok?phrase=asd&faset=employees'>Ansatte</a>
-          <a href='/sok?phrase=asd&faset=wwwtelemark'>wwww.telemark.no</a>
-          <a href='/sok?phrase=asd&faset=portaleninfo'>Infosider</a>
+          <a href={`/sok?phrase=${phrase}`}>Alt innhold</a>
+          <a href={`/sok?phrase=${phrase}&faset=employees`}>Ansatte</a>
+          <a href={`/sok?phrase=${phrase}&faset=wwwtelemark`}>wwww.telemark.no</a>
+          <a href={`/sok?phrase=${phrase}&faset=portaleninfo`}>Infosider</a>
         </div>
-        <p className='result-text'>0 treff på søkeordet "asd", viser side 1 av 1.</p>
+        <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
         <style jsx>
           {`
             .nav a {

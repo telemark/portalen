@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import { Component, Fragment } from 'react'
 
 export default class SearchField extends Component {
@@ -7,6 +8,7 @@ export default class SearchField extends Component {
       search: false
     }
     this.toggleSearch = this.toggleSearch.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   toggleSearch () {
@@ -14,12 +16,21 @@ export default class SearchField extends Component {
     this.setState({ search: newState })
   }
 
+  handleSearch (e) {
+    if (e.key === 'Enter') {
+      Router.push({
+        pathname: '/search',
+        query: { phrase: e.target.value }
+      })
+    }
+  }
+
   render () {
     return (
       <Fragment>
         <div style={{ display: 'inline-flex' }}>
           {
-            this.state.search && <input type='text' className='searchbar' placeholder='Søk' autoFocus />
+            this.state.search && <input type='text' onKeyPress={this.handleSearch} className='searchbar' placeholder='Søk' autoFocus />
           }
           <a onClick={this.toggleSearch}>
             <i className='material-icons'>search</i>
