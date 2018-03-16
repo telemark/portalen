@@ -25,7 +25,7 @@ class Admin extends Component {
     return (
       <Page username={this.props.user} toggleSidebar={this.toggleSidebar}>
         {this.state.sidebar && this.props.roles && <Sidebar roles={this.props.roles} toggleSidebar={this.toggleSidebar} />}
-        {this.props.roles && <Shortcuts roles={this.props.roles} ip={this.props.ip} />}
+        {this.props.roles && <Shortcuts shortcuts={this.props.shortcuts} />}
         <div className='content-wrapper'>
           {this.props.user && <div><Tasks /><Messages /></div>}
           {this.props.roles && <NewsList roles={this.props.roles} />}

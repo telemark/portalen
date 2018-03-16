@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import getIp from '../lib/get-ip'
 import getRoles from '../lib/get-roles'
+import getShortcuts from '../lib/get-shortcuts'
 
 export default Page => class Session extends Component {
   static getInitialProps (ctx) {
@@ -12,7 +13,9 @@ export default Page => class Session extends Component {
     }
     const ip = getIp(req)
     const roles = getRoles(user.companyName)
-    return { user, ip, roles }
+    console.log(roles)
+    const shortcuts = getShortcuts(roles, ip)
+    return { user, ip, roles, shortcuts }
   }
 
   render () {

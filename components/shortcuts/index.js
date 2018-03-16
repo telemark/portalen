@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import Shortcut from './Shortcut'
-const axios = require('axios')
 
 export default class Shortcuts extends Component {
   constructor (props) {
@@ -10,16 +9,10 @@ export default class Shortcuts extends Component {
     }
   }
 
-  async componentDidMount () {
-    const url = `https://shortcuts.portalen.win/shortcuts?roles=${this.props.roles.join('|')}&myIp=${this.props.ip}`
-    const { data } = await axios.get(url)
-    this.setState({shortcuts: data})
-  }
-
   render () {
     return (
       <div className='shortcut-wrapper'>
-        {this.state.shortcuts && this.state.shortcuts.map((item, index) => <Shortcut data={item} key={index} />)}
+        {this.props.shortcuts && this.props.shortcuts.map((item, index) => <Shortcut data={item} key={index} />)}
         <style jsx>
           {`
             .shortcut-wrapper {
