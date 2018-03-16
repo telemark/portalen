@@ -43,6 +43,7 @@ class Admin extends Component {
           {`
             .content-wrapper {
               display: grid;
+              display: -ms-grid;
               grid-template-columns: 1fr 1fr;
               -ms-grid-columns: 1fr 1fr;
               grid-column-gap: 14px;

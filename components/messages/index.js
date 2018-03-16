@@ -30,6 +30,7 @@ export default class Messages extends Component {
           {`
             .messages-wrapper {
               display: grid;
+              display: -ms-grid;
               text-align: left;
               padding: 14px 16px;
               border-radius: 0;

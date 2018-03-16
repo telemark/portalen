@@ -55,6 +55,7 @@ export default ({ children }) => (
         }
         .container {
           display: grid;
+          display: -ms-grid;
           grid-template-areas:
             "header header header"
             ". content ."
