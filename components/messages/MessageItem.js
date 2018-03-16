@@ -1,8 +1,10 @@
+import Markdown from 'react-markdown'
+
 export default ({ data }) => (
   <div className='message-item'>
-    <h4>Test</h4>
-    <span className='description'>description</span>
-    <p>text</p>
+    <h4>{data.title}</h4>
+    <span className='description'>{data.user && data.user.cn ? data.user.cn : 'Anonym'}</span>
+    <Markdown source={data.text} />
     <style jsx>
       {`
         .message-item {

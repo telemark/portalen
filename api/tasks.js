@@ -24,10 +24,12 @@ exports.getTasks = async (request, response) => {
     const token = generateSystemToken(config.tasks_jwt_secret)
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     const url = `${config.tasks_service}/${id}`
-    const a = axios.create({timeout: 3000})
+    const options = {
+      timeout: 3000
+    }
     log('info', ['api', 'tasks', 'getTasks', `Retreiving tasks for ${user} - ${id}`])
     try {
-      const { data } = await a.get(url)
+      const { data } = await axios.get(url, options)
       result = data.data
       log('info', ['api', 'tasks', 'getTasks', 'user', user, 'tasks', result.length, 'success'])
     } catch (error) {

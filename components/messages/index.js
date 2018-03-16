@@ -1,10 +1,19 @@
 import { Component } from 'react'
 import MessageItem from './MessageItem'
+const axios = require('axios')
 
-export default class NewsList extends Component {
+export default class Messages extends Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      messages: []
+    }
+  }
+
+  async componentDidMount () {
+    const url = `/api/messages`
+    const { data } = await axios.get(url)
+    this.setState({messages: data})
   }
 
   render () {
@@ -16,7 +25,7 @@ export default class NewsList extends Component {
             <a className='button'>Ny Melding</a>
           </div>
         </div>
-        <MessageItem />
+        {this.state.messages.length > 0 ? this.state.messages.map((item, index) => <MessageItem data={item} key={index} />) : null}
         <style jsx>
           {`
             .messages-wrapper {

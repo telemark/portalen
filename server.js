@@ -7,6 +7,7 @@ const micro = require('micro')
 const { parse: urlParse } = require('url')
 const { setup, login, callback, logout } = require('./api')
 const { getTasks } = require('./api/tasks')
+const { getMessages } = require('./api/messages')
 const redirect = (res, location, statusCode = 302) => { res.statusCode = statusCode; res.setHeader('Location', location); res.end() }
 const { SESSION_KEY } = require('./config')
 const session = require('micro-cookie-session')({
@@ -47,6 +48,9 @@ const server = micro(async (req, res) => {
     }
   } else if (pathname === '/api/tasks') {
     const data = await getTasks(req, res)
+    return data
+  } else if (pathname === '/api/messages') {
+    const data = await getMessages(req, res)
     return data
   } else {
     return handle(req, res)
