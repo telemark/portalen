@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import getIp from '../lib/get-ip'
-import getRoles from '../lib/get-roles'
 import getShortcuts from '../lib/get-shortcuts'
 import getLinks from '../lib/get-links'
 
@@ -14,7 +13,7 @@ export default Page => class Session extends Component {
       ctx.res.end()
     }
     const ip = getIp(req)
-    const roles = getRoles(user.companyName)
+    const roles = user.roles
     const shortcuts = getShortcuts(roles, ip)
     const links = getLinks(roles)
     return { user, ip, roles, shortcuts, links }

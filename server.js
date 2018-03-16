@@ -16,6 +16,7 @@ const session = require('micro-cookie-session')({
   maxAge: 24 * 60 * 60 * 1000
 })
 const next = require('next')
+const getRoles = require('./lib/get-roles')
 const port = parseInt(process.env.PORT, 10) || 3000
 const app = next({ dev })
 const handle = app.getRequestHandler()
@@ -41,7 +42,10 @@ const server = micro(async (req, res) => {
   } else if (pathname === '/api/callback') {
     try {
       const callbackData = await callback(req, res)
-      req.session.data = callbackData.userProfile[0]
+      let profile = callbackData.userProfile[0]
+      const roles = getRoles(profile.companyName)
+      profile.roles = roles
+      req.session.data = profile
       redirect(res, '/')
     } catch (error) {
       throw error
