@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import getIp from '../lib/get-ip'
+import getRoles from '../lib/get-roles'
 
 export default Page => class Session extends Component {
   static getInitialProps (ctx) {
@@ -10,7 +11,8 @@ export default Page => class Session extends Component {
       ctx.res.end()
     }
     const ip = getIp(req)
-    return { user, ip }
+    const roles = getRoles(user.companyName)
+    return { user, ip, roles }
   }
 
   render () {
