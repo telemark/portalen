@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Router from 'next/router'
 import Session from '../components/Session'
 import Page from '../components/Page'
 import Sidebar from '../components/sidebar'
@@ -22,6 +23,8 @@ class Admin extends Component {
     if (this.props.user) {
       const roles = await getRoles(this.props.user.companyName)
       this.setState({ roles })
+    } else {
+      Router.push({ pathname: '/api/login'})
     }
   }
 
@@ -34,7 +37,6 @@ class Admin extends Component {
     return (
       <Page username={this.props.user} toggleSidebar={this.toggleSidebar}>
         {this.state.sidebar && this.state.roles && <Sidebar roles={this.state.roles} toggleSidebar={this.toggleSidebar} />}
-        {!this.props.user && <h1>Vennligst logg inn...</h1>}
         {this.state.roles && <Shortcuts roles={this.state.roles} ip={this.props.ip} />}
         <div className='content-wrapper'>
           {this.props.user && <div><Tasks /><Messages /></div>}
