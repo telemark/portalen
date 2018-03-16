@@ -60,7 +60,9 @@ export default ({ children }) => (
             ". content ."
             "footer footer footer";
           grid-template-columns: 30px auto 30px;
+          -ms-grid-columns: 30px auto 30px;
           grid-template-rows: auto 1fr auto;
+          -ms-grid-rows: auto 1fr auto;
         }
         .center {
           display: flex;

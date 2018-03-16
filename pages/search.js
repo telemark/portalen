@@ -18,6 +18,7 @@ class SearchPage extends Component {
             .content-wrapper {
               display: grid;
               grid-template-columns: 1fr 1fr;
+              -ms-grid-columns: 1fr 1fr;
               grid-column-gap: 14px;
               grid-row-gap: 14px;
               margin-top: 14px;
