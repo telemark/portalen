@@ -17,11 +17,6 @@ class Sidebar extends Component {
         {children}
         <style jsx>
           {`
-            i {
-              color: #777777;
-              width: 100%;
-              text-align: right;
-            }
             .sidebar {
               padding: 10px;
               height: 100%;

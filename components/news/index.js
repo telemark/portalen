@@ -1,6 +1,14 @@
 import { Component } from 'react'
-import NewsItem from './NewsItem'
-const axios = require('axios')
+import axios from 'axios'
+import { Box, LinkButton } from '../styles'
+
+const NewsItem = ({ data }) => (
+  <Box style={{ textAlign: 'left', marginBottom: '14px' }}>
+    <h4>{data.title}</h4>
+    <p style={{ fontSize: '14px', lineHeight: '24px' }} dangerouslySetInnerHTML={{__html: data.summary}} />
+    <LinkButton href={data.url}>Les mer</LinkButton>
+  </Box>
+)
 
 export default class NewsList extends Component {
   constructor (props) {
@@ -18,7 +26,7 @@ export default class NewsList extends Component {
 
   render () {
     return (
-      <div className='news-wrapper'>
+      <div>
         {this.state.news && this.state.news.map((item, index) => <NewsItem data={item} key={index} />)}
       </div>
     )

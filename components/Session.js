@@ -11,12 +11,13 @@ export default Page => class Session extends Component {
     if (!user) {
       ctx.res.writeHead(301, {Location: '/api/login'})
       ctx.res.end()
+    } else {
+      const ip = getIp(req)
+      const roles = user.roles
+      const shortcuts = getShortcuts(roles, ip)
+      const links = getLinks(roles)
+      return { user, ip, roles, shortcuts, links }
     }
-    const ip = getIp(req)
-    const roles = user.roles
-    const shortcuts = getShortcuts(roles, ip)
-    const links = getLinks(roles)
-    return { user, ip, roles, shortcuts, links }
   }
 
   render () {

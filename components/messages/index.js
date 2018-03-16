@@ -1,6 +1,30 @@
 import { Component } from 'react'
-import MessageItem from './MessageItem'
-const axios = require('axios')
+import axios from 'axios'
+import Markdown from 'react-markdown'
+import moment from 'moment'
+import 'moment/locale/nb.js'
+import { Box, LinkButton } from '../styles'
+
+const MessageItem = ({ data }) => (
+  <div className='message-item'>
+    <h4>{data.title}</h4>
+    <span className='description'>{moment(data.date_from).fromNow()} av {data.user && data.user.cn ? data.user.cn : 'Anonym'}</span>
+    <Markdown source={data.text} />
+    <style jsx>
+      {`
+        .message-item {
+          background-color: #FFF;
+          border-top: 1px solid rgb(238, 238, 238);
+          padding-top: 10px;
+        }
+
+       .description {
+          color: #999;
+        }
+      `}
+    </style>
+  </div>
+)
 
 export default class Messages extends Component {
   constructor (props) {
@@ -18,28 +42,16 @@ export default class Messages extends Component {
 
   render () {
     return (
-      <div className='messages-wrapper'>
+      <Box style={{ display: 'grid', marginTop: '14px', textAlign: 'left' }}>
         <div className='header'>
           <h1>Meldinger</h1>
           <div className='right'>
-            <a className='button'>Ny Melding</a>
+            <LinkButton>Ny Melding</LinkButton>
           </div>
         </div>
-        {this.state.messages.length > 0 ? this.state.messages.map((item, index) => <MessageItem data={item} key={index} />) : null}
+        {this.state.messages.length > 0 && this.state.messages.map((item, index) => <MessageItem data={item} key={index} />)}
         <style jsx>
           {`
-            .messages-wrapper {
-              display: grid;
-              display: -ms-grid;
-              text-align: left;
-              padding: 14px 16px;
-              border-radius: 0;
-              background-color: #FFF;
-              box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
-              padding-bottom: 20px;
-              margin-top: 14px;
-            }
-
             .header {
               display: inline-flex;
             }
@@ -48,28 +60,9 @@ export default class Messages extends Component {
               margin-left: auto;
               margin-right: 0;
             }
-
-           .button {
-              background-color: white;
-              color: #353535;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 14px;
-              padding: 0 8px;
-              line-height: 40px
-              cursor: pointer;
-              text-transform: uppercase;
-              border-radius: 2px;
-              transition: all 0.3s ease 0s;
-            }
-
-            .button:hover {
-              background-color: #b9b9b9;
-            }
           `}
         </style>
-      </div>
+      </Box>
     )
   }
 }

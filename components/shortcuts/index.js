@@ -1,4 +1,22 @@
-import Shortcut from './Shortcut'
+import { Icon, Box } from '../styles'
+
+const Shortcut = ({ data }) => (
+  <a href={data.url} target='_blank'>
+    <Box style={{ minHeight: '80px' }}>
+      <Icon name={data.icon} />
+      <h4>{data.title}</h4>
+      <div className='description'>{data.description}</div>
+    </Box>
+    <style jsx>
+      {`
+        .description {
+          color: #999;
+          font-size: 13px;
+        }
+      `}
+    </style>
+  </a>
+)
 
 export default ({ shortcuts }) => (
   <div className='shortcut-wrapper'>

@@ -1,6 +1,15 @@
 import { Component, Fragment } from 'react'
-import Task from './Task'
-const axios = require('axios')
+import axios from 'axios'
+import { Icon, Box } from '../styles'
+import iconMapper from '../../lib/task-icon-mapper'
+
+const Task = ({ data }) => (
+  <Fragment>
+    <a href={data.url} target='_blank'>
+      <Icon name={iconMapper(data.systemid)} /> {data.title}
+    </a>
+  </Fragment>
+)
 
 export default class Tasks extends Component {
   constructor (props) {
@@ -17,26 +26,14 @@ export default class Tasks extends Component {
 
   render () {
     return (
-      <div className='tasks-wrapper'>
+      <Box style={{ textAlign: 'left', paddingBottom: '20px' }}>
         <h1>Dine oppgaver</h1>
         {
           this.state.tasks && this.state.tasks.length < 0
             ? this.state.tasks.map((item, index) => <Task data={item} key={index} />)
-            : <Fragment><i style={{ marginRight: '22px' }} className='material-icons'>tag_faces</i> Du har ingen oppgaver.</Fragment>
+            : <Fragment><Icon style={{ marginRight: '22px' }} name='tag_faces' /> Du har ingen oppgaver.</Fragment>
         }
-        <style jsx>
-          {`
-            .tasks-wrapper {
-              text-align: left;
-              padding: 14px 16px;
-              border-radius: 0;
-              background-color: #FFF;
-              box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
-              padding-bottom: 20px;
-            }
-          `}
-        </style>
-      </div>
+      </Box>
     )
   }
 }

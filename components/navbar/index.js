@@ -1,6 +1,7 @@
 import DropDownMenu from './DropDownMenu'
 import SearchField from './SearchField'
 import { COMPANY, COLORS, APP } from '../../config'
+import { Icon } from '../styles'
 
 const menuLinks = [
   {
@@ -25,10 +26,10 @@ export default ({ username = false, toggleSidebar }) => (
     <ul className='left'>
       <li>
         <a onClick={toggleSidebar}>
-          <i className='material-icons' style={{ verticalAlign: 'super' }}>menu</i>
+          <Icon style={{ verticalAlign: 'super' }} name='menu' />
         </a>
         <a href='/'>
-          <img className='logo' src={COMPANY.logo} />
+          <img className='logo' alt={COMPANY.name} src={COMPANY.logo} />
         </a>
       </li>
       <li>
@@ -48,8 +49,8 @@ export default ({ username = false, toggleSidebar }) => (
               menuLinks.map(link =>
                 <a key={link.name} href={link.href}>
                   <div className='menu'>
-                    <i className='material-icons'>{link.icon}</i>
-                    {link.name}
+                    <Icon style={{ marginLeft: '8px' }} name={link.icon} />
+                    <span style={{ marginLeft: '25px' }}>{link.name}</span>
                   </div>
                 </a>
               )
@@ -65,22 +66,12 @@ export default ({ username = false, toggleSidebar }) => (
       img {
         width: 36px;
       }
-      i {
-        font-size: 20px !important;
-      }
-      a {
-        text-transform: none;
-      }
       .menu {
         border-bottom: 1px solid #d6d6d6;
         line-height: 50px;
         width: 100%;
         text-align: left;
         min-width: 190px;
-      }
-      .menu i {
-        margin-right: 20px;
-        margin-left: 5px;
       }
       .menu:hover, .menu:hover a {
         background: ${COLORS.secondary};
