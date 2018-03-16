@@ -6,7 +6,7 @@ export default ({ data }) => (
     <style jsx>
       {`
         .news-item {
-          margin-top: 14px;
+          margin-bottom: 14px;
           text-align: left;
           padding: 14px 16px;
           border-radius: 0;
