@@ -11,10 +11,8 @@ export default class Shortcuts extends Component {
   }
 
   async componentDidMount () {
-    const { data: client } = await axios('https://api.ipify.org?format=json')
-    const url = `https://shortcuts.portalen.win/shortcuts?roles=${this.props.roles.join('|')}&myIp=${client.ip}`
+    const url = `https://shortcuts.portalen.win/shortcuts?roles=${this.props.roles.join('|')}&myIp=${this.props.ip}`
     const { data } = await axios.get(url)
-    console.log(this.props.ip)
     this.setState({shortcuts: data})
   }
 
