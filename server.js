@@ -1,126 +1,66 @@
-'use strict'
-
-var Hapi = require('hapi')
-var Hoek = require('hoek')
-var server = new Hapi.Server()
-var config = require('./config')
-var portalenService = require('./index')
-var validate = require('./lib/validateJWT')
-var validateAPI = require('./lib/validateAPI')
-var goodOptions = {
-  ops: {
-    interval: 1000
-  },
-  reporters: {
-    console: [{
-      module: 'good-squeeze',
-      name: 'Squeeze',
-      args: [{ log: '*', response: '*' }]
-    }, {
-      module: 'good-console'
-    }, 'stdout']
-  }
+const dev = process.env.NODE_ENV !== 'production'
+if (dev) {
+  require('dotenv').config()
 }
 
-server.connection({
-  port: config.SERVER_PORT_WEB
+const micro = require('micro')
+const { parse: urlParse } = require('url')
+const { setup, login, callback, logout } = require('./api')
+const { getTasks } = require('./api/tasks')
+const { getMessages } = require('./api/messages')
+const redirect = (res, location, statusCode = 302) => { res.statusCode = statusCode; res.setHeader('Location', location); res.end() }
+const { SESSION_KEY } = require('./config')
+const session = require('micro-cookie-session')({
+  name: 'session',
+  keys: [SESSION_KEY],
+  maxAge: 24 * 60 * 60 * 1000
 })
+const next = require('next')
+const port = parseInt(process.env.PORT, 10) || 3000
+const app = next({ dev })
+const handle = app.getRequestHandler()
+const { DEMO } = require('./config')
 
-server.register(require('vision'), function (err) {
-  Hoek.assert(!err, err)
-
-  server.views({
-    engines: {
-      html: require('handlebars')
-    },
-    relativeTo: __dirname,
-    path: 'views',
-    helpersPath: 'views/helpers',
-    partialsPath: 'views/partials',
-    layoutPath: 'views/layouts',
-    layout: true,
-    compileMode: 'sync'
-  })
-})
-
-server.register(require('inert'), function (err) {
-  if (err) {
-    throw err
-  }
-  server.route({
-    method: 'GET',
-    path: '/public/{param*}',
-    handler: {
-      directory: {
-        path: 'public'
-      }
-    },
-    config: {
-      auth: false
+const server = micro(async (req, res) => {
+  session(req, res)
+  const { pathname } = await urlParse(req.url, true)
+  if (pathname === '/api/login') {
+    if (DEMO) {
+      req.session.data = require('./test/user.json')
+      redirect(res, '/')
+      return
     }
+    return login(req, res)
+  } else if (pathname === '/api/logout') {
+    req.session = null
+    if (DEMO) {
+      redirect(res, '/')
+      return
+    }
+    return logout(req, res)
+  } else if (pathname === '/api/callback') {
+    try {
+      const callbackData = await callback(req, res)
+      req.session.data = callbackData.userProfile[0]
+      redirect(res, '/')
+    } catch (error) {
+      throw error
+    }
+  } else if (pathname === '/api/tasks') {
+    const data = await getTasks(req, res)
+    return data
+  } else if (pathname === '/api/messages') {
+    const data = await getMessages(req, res)
+    return data
+  } else {
+    return handle(req, res)
+  }
+})
+
+app.prepare().then(() => {
+  server.listen(port, err => {
+    if (err) throw err
+    setup()
+    console.log(`> Ready on http://localhost:${port}`)
   })
 })
-
-server.register(require('hapi-auth-cookie'), function (err) {
-  if (err) {
-    console.error('Failed to load a plugin: ', err)
-  }
-
-  server.auth.strategy('session', 'cookie', {
-    password: config.COOKIE_SECRET,
-    cookie: 'portalen-session',
-    validateFunc: validate,
-    redirectTo: '/login',
-    isSecure: false
-  })
-
-  server.auth.default('session')
-})
-
-server.register(require('hapi-auth-jwt2'), function (err) {
-  if (err) {
-    console.log(err)
-  }
-
-  server.auth.strategy('jwt', 'jwt',
-    { key: config.JWT_SECRET,          // Never Share your secret key
-      validateFunc: validateAPI,            // validate function defined above
-      verifyOptions: { algorithms: [ 'HS256' ] } // pick a strong algorithm
-    })
-})
-
-server.register({
-  register: require('good'),
-  options: goodOptions
-}, function (err) {
-  if (err) {
-    console.error(err)
-  }
-})
-
-server.register([
-  {
-    register: portalenService,
-    options: {}
-  }
-], function (err) {
-  if (err) {
-    console.error('Failed to load a plugin:', err)
-  }
-})
-
-function startServer () {
-  server.start(function () {
-    console.log('Server running at:', server.info.uri)
-  })
-}
-
-function stopServer () {
-  server.stop(function () {
-    console.log('Server stopped')
-  })
-}
-
-module.exports.start = startServer
-
-module.exports.stop = stopServer

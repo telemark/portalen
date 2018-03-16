@@ -1,27 +1,63 @@
+[![Build Status](https://travis-ci.org/telemark/portalen.svg?branch=master)](https://travis-ci.org/telemark/portalen)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/portalen.svg)](https://greenkeeper.io/)
+
 # portalen
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/portalen.svg)](https://greenkeeper.io/)
 Forsiden på intranettet vårt
 
-## Installasjon
+# Azure authentication setup
+
+Sign in to the [Azure portal](https://portal.azure.com/)
+
+In the left-hand navigation pane go to *Azure Active Directory* -> *App registrations* -> *New application registration* and register the app with following settings
+
+| Setting | value |
+| ------- | ----- |
+| Name    | Your app name |
+| Application type | Web app / API |
+| Sign-on URL | https://your-domain.com/api/callback |
+
+Go to *Settings* -> *Keys* in your registered app and type inn a Key description and value.
+
+Go to *Settings* -> *Required permissions* in your registered app and add "Microsoft Graph" and choose the permission *Read all users' full profiles*. Add the same permission under *Windows Azure Active Directory*. Then click *Grant Permissions*
+
+Follow the link after "Managed application in local directory" in your registered app and *Users and groups*, click *Add user* and add user(s) you want to grant access to the app.
+
+See [microsoft docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+
+# S3 setup
+
+You will need an S3 bucket on [AWS](https://aws.amazon.com) to persist [GUN](https://github.com/amark/gun) in production.
+
+Follow [this guide](http://gun.js.org/docs/Using-Amazon-S3-for-Storage)
+
+For development you can persist to file.
+
+# Installation alternatives
+
+## 1. Run on host
+
+### Install
+
+Nodejs >= 8.9.4 and npm must be installed.
+
+```sh
+git clone https://github.com/telemark/portalen
+cd portalen
+npm i
 ```
-$ git clone git@github.com:telemark/portalen.git
+
+### Edit config
+
+See [config.js](config.js)
+
+```sh
+vim config.js
 ```
 
-cd inn i directory og kjør setup
+## License
 
-```
-$ npm run setup
-```
+[MIT](LICENSE)
 
-Fyr opp docker
-
-```
-$ docker-compose up
-```
-
-Funker ut av boksen satt opp mot testserveren til [forumsys](http://www.forumsys.com/en/tutorials/integration-how-to/ldap/online-ldap-test-server/)
-
-Du når serveren på ip-for-docker port 80
-
-Logininfo finnes på sidene til forumsys men en kombinasjon er f.eks. gauss/password
+![Robohash image of portalen](https://robots.kebabstudios.party/portalen.png "Robohash image of portalen")

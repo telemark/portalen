@@ -1,8 +1,9 @@
 {
   "name": "portalen",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Portal frontpage for Telemark fylkeskommune",
   "license": "MIT",
+  "private": true,
   "author": {
     "name": "Geir Gåsodden",
     "email": "geir.gasodden@pythonia.no",
@@ -17,15 +18,19 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4.4.3"
+    "node": ">=8.10.0"
   },
   "scripts": {
-    "start": "node standalone.js",
-    "test": "standard && tap --reporter=spec test/*.js",
-    "coverage": "tap test/*.js --coverage",
-    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
-    "setup": "npm install && node setup.js",
-    "generate-test-token": "node utils/generate-test-token.js"
+    "test": "standard && nsp check && ava",
+    "test-offline": "standard && ava",
+    "coverage": "nyc ava",
+    "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls",
+    "standard-fix": "standard --fix",
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "node server.js",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
+    "deploy": "now && now alias"
   },
   "keywords": [
     "Louie",
@@ -33,42 +38,46 @@
     "Tfk",
     "Portalen"
   ],
-  "standard": {
-    "ignore": [
-      "public"
-    ]
-  },
-  "louie": {
-    "versionName": "Motörhead",
-    "versionVideoUrl": "https://www.youtube.com/watch?v=4V1p1dM3snQ",
-    "systemName": "Portalen"
-  },
   "repository": {
     "type": "git",
-    "url": "http://github.com/telemark/portalen.git"
+    "url": "https://github.com/telemark/portalen.git"
   },
   "bugs": {
-    "url": "http://github.com/telemark/portalen/issues"
+    "url": "https://github.com/telemark/portalen/issues"
   },
+  "homepage": "https://github.com/telemark/portalen#readme",
   "devDependencies": {
-    "coveralls": "2.11.16",
-    "standard": "8.6.0",
-    "tap": "10.0.2"
+    "ava": "0.25.0",
+    "coveralls": "3.0.0",
+    "micro-dev": "2.2.0",
+    "nsp": "3.2.1",
+    "nyc": "11.6.0",
+    "standard": "11.0.0"
   },
   "dependencies": {
-    "good": "7.1.0",
-    "good-console": "6.2.0",
-    "good-squeeze": "5.0.1",
-    "handlebars": "4.0.6",
-    "hapi": "16.1.0",
-    "hapi-auth-cookie": "6.1.1",
-    "hapi-auth-jwt2": "7.2.4",
-    "hoek": "4.1.0",
-    "inert": "4.1.0",
-    "jsonwebtoken": "7.2.1",
-    "ldapauth-fork": "3.0.0",
-    "mongojs": "2.4.0",
-    "vision": "4.1.1",
-    "wreck": "10.0.0"
+    "axios": "0.18.0",
+    "dotenv": "5.0.1",
+    "jsonwebtoken": "8.2.0",
+    "micro": "9.1.4",
+    "micro-cookie-session": "2.0.0-beta.1",
+    "mongojs": "2.5.0",
+    "next": "5.0.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-markdown": "3.3.0",
+    "react-onclickoutside": "6.7.1",
+    "urlencoded-body-parser": "2.0.1",
+    "uuid": "3.2.1",
+    "winston": "2.4.1",
+    "winston-papertrail": "1.0.5"
+  },
+  "now": {
+    "name": "portalen",
+    "alias": "www.portalen.win",
+    "type": "npm",
+    "engines": {
+      "node": "8.10.0"
+    },
+    "dotenv": "production.env"
   }
 }
