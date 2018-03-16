@@ -20,7 +20,8 @@ export default class SearchField extends Component {
     if (e.key === 'Enter') {
       Router.push({
         pathname: '/search',
-        query: { phrase: e.target.value }
+        query: { phrase: e.target.value },
+        shallow: false
       })
     }
   }

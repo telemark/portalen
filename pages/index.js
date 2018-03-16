@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import Router from 'next/router'
 import Session from '../components/Session'
 import Page from '../components/Page'
 import Sidebar from '../components/sidebar'
@@ -23,8 +22,6 @@ class Admin extends Component {
     if (this.props.user) {
       const roles = await getRoles(this.props.user.companyName)
       this.setState({ roles })
-    } else {
-      Router.push({ pathname: '/api/login'})
     }
   }
 
