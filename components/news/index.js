@@ -23,9 +23,6 @@ export default class NewsList extends Component {
         <style jsx>
           {`
             .news-wrapper {
-              display: grid;
-              grid-column-gap: 10px;
-              grid-row-gap: 10px;
             }
           `}
         </style>
