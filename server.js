@@ -5,7 +5,8 @@ if (dev) {
 
 const micro = require('micro')
 const { parse: urlParse } = require('url')
-const { setup, login, callback, logout, getTasks } = require('./api')
+const { setup, login, callback, logout } = require('./api')
+const { getTasks } = require('./api/tasks')
 const redirect = (res, location, statusCode = 302) => { res.statusCode = statusCode; res.setHeader('Location', location); res.end() }
 const { SESSION_KEY } = require('./config')
 const session = require('micro-cookie-session')({

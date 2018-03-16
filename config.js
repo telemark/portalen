@@ -30,7 +30,11 @@ const config = {
   client_secret: process.env.MOA_CLIENT_SECRET || 'your-password', // Registered app in  https://portal.azure.com/ -> Settings -> Keys,
   tasks_jwt_secret: process.env.TASKS_JWT_SECRET || 'Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go', // JWT secret for tasks service
   tasks_service: process.env.TASKS_SERVICE || 'https://tasks.com/api', // URL for tasks service
-  SESSION_KEY: process.env.SESSION_KEY || 'Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go'
+  SESSION_KEY: process.env.SESSION_KEY || 'Louie Louie, oh no, I got to go Louie Louie, oh no, I got to go',
+  databaseUri: process.env.DATABASE_URI || 'mongodb://localhost:27017/portalen',
+  papertrailHostName: process.env.PAPERTRAIL_HOSTNAME || 'portalen',
+  papertrailHost: process.env.PAPERTRAIL_HOST || 'logs.papertrailapp.com',
+  papertrailPort: process.env.PAPERTRAIL_PORT || 12345
 }
 
 module.exports = {
