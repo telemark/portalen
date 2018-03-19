@@ -16,7 +16,8 @@ module.exports.getLinks = (request, response) => {
           resolve([])
         } else {
           logger('info', ['api', 'links', 'getLinks', documents.length, 'success'])
-          resolve(documents)
+          const userlinks = documents.map(document => Object.assign({}, document, {icon: 'link'}))
+          resolve(userlinks)
         }
       })
     } else {

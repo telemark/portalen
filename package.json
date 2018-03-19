@@ -67,6 +67,7 @@
     "react-dom": "16.2.0",
     "react-markdown": "3.3.0",
     "react-onclickoutside": "6.7.1",
+    "tfk-unique-array": "1.0.11",
     "urlencoded-body-parser": "2.0.1",
     "uuid": "3.2.1",
     "wildcard": "1.1.2",

@@ -1,5 +1,7 @@
+import { Component } from 'react'
 import Sidebar from './Sidebar'
 import { Icon } from '../styles'
+const axios = require('axios')
 
 const LinkItem = ({ data }) => (
   <div className='link'>
@@ -22,8 +24,25 @@ const LinkItem = ({ data }) => (
   </div>
 )
 
-export default ({ links, toggleSidebar }) => (
-  <Sidebar toggleSidebar={toggleSidebar}>
-    { links && links.map((item, index) => <LinkItem data={item} key={index} />)}
-  </Sidebar>
-)
+export default class Links extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      links: props.links,
+      userlinks: []
+    }
+  }
+
+  async componentDidMount () {
+    const { data } = await axios('/api/links')
+    this.setState({userlinks: data})
+  }
+
+  render () {
+    return (
+      <Sidebar toggleSidebar={this.props.toggleSidebar}>
+        { this.state.links && this.state.links.concat(this.state.userlinks).map((item, index) => <LinkItem data={item} key={index} />)}
+      </Sidebar>
+    )
+  }
+}

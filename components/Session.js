@@ -4,7 +4,7 @@ import getShortcuts from '../lib/get-shortcuts'
 import getLinks from '../lib/get-links'
 
 export default Page => class Session extends Component {
-  static getInitialProps (ctx) {
+  static async getInitialProps (ctx) {
     const { req } = ctx
     if (!req) return {}
     const user = req.session ? req.session.data : null
