@@ -42,10 +42,11 @@ const server = micro(async (req, res) => {
   } else if (pathname === '/api/callback') {
     try {
       const callbackData = await callback(req, res)
-      let profile = callbackData.userProfile[0]
-      const roles = getRoles(profile.companyName)
-      profile.roles = roles
-      req.session.data = profile
+      const profile = callbackData.userProfile[0]
+      req.session.data = {
+        ...profile,
+        roles: getRoles(profile.companyName)
+      }
       redirect(res, '/')
     } catch (error) {
       throw error
