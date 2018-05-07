@@ -52,7 +52,7 @@
     "micro-dev": "2.2.2",
     "nsp": "3.2.1",
     "nyc": "11.7.1",
-    "standard": "11.0.0"
+    "standard": "11.0.1"
   },
   "dependencies": {
     "axios": "0.18.0",
