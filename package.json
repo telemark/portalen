@@ -65,7 +65,7 @@
     "next": "6.0.3",
     "react": "16.4.1",
     "react-dom": "16.4.1",
-    "react-markdown": "3.3.3",
+    "react-markdown": "3.3.4",
     "react-onclickoutside": "6.7.1",
     "tfk-unique-array": "1.0.11",
     "urlencoded-body-parser": "2.0.1",
