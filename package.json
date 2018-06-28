@@ -69,7 +69,7 @@
     "react-onclickoutside": "6.7.1",
     "tfk-unique-array": "1.0.11",
     "urlencoded-body-parser": "2.0.1",
-    "uuid": "3.2.1",
+    "uuid": "3.3.2",
     "wildcard": "1.1.2",
     "winston": "2.4.3",
     "winston-papertrail": "1.0.5"
