@@ -2,7 +2,7 @@ import { Component, Fragment } from 'react'
 
 export default class extends Component {
   render () {
-    const {phrase} = this.props
+    const { phrase } = this.props
     const searchUrl = `/search?phrase=${phrase}`
     //    const {faset} = this.props
     return (

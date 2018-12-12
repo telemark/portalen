@@ -9,7 +9,7 @@ export default Page => class Session extends Component {
     if (!req) return {}
     const user = req.session ? req.session.data : null
     if (!user) {
-      ctx.res.writeHead(301, {Location: '/api/login'})
+      ctx.res.writeHead(301, { Location: '/api/login' })
       ctx.res.end()
       return
     }

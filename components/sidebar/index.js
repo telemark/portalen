@@ -35,7 +35,7 @@ export default class Links extends Component {
 
   async componentDidMount () {
     const { data } = await axios('/api/links')
-    this.setState({userlinks: data})
+    this.setState({ userlinks: data })
   }
 
   render () {

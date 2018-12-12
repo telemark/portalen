@@ -37,7 +37,7 @@ export default class Messages extends Component {
   async componentDidMount () {
     const url = `/api/messages`
     const { data } = await axios.get(url)
-    this.setState({messages: data})
+    this.setState({ messages: data })
   }
 
   render () {

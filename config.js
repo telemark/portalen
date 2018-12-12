@@ -1,5 +1,5 @@
 const uuid = require('uuid/v4')
-const { version, now: {alias} } = require('./package.json')
+const { version, now: { alias } } = require('./package.json')
 
 const config = {
   DEMO: process.env.DEMO || false, // For demo use only (uses fake login)

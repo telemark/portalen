@@ -21,7 +21,7 @@ export default class Tasks extends Component {
 
   async componentDidMount () {
     const { data } = await axios('/api/tasks')
-    this.setState({tasks: data})
+    this.setState({ tasks: data })
   }
 
   render () {

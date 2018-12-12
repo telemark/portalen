@@ -15,7 +15,7 @@ export default class extends React.Component {
     this.state.isOpen
       ? document.removeEventListener('click', this.handleOutsideClick, false)
       : document.addEventListener('click', this.handleOutsideClick, false)
-    this.setState(prevState => ({isOpen: !prevState.isOpen}))
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }))
   }
 
   handleOutsideClick (e) {

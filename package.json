@@ -32,6 +32,19 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
     "deploy": "now && now alias"
   },
+  "standard": {
+    "ignore": [
+      "/static/*.js"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "jsx": true
+      },
+      "sourceType": "module"
+    }
+  },
   "keywords": [
     "Louie",
     "Telemark fylkeskommune",
@@ -48,6 +61,7 @@
   "homepage": "https://github.com/telemark/portalen#readme",
   "devDependencies": {
     "ava": "0.25.0",
+    "babel-eslint": "10.0.1",
     "coveralls": "3.0.2",
     "micro-dev": "3.0.0",
     "nsp": "3.2.1",

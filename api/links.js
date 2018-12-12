@@ -10,13 +10,13 @@ module.exports.getLinks = (request, response) => {
     if (user) {
       logger('info', ['api', 'links', 'getLinks', 'user', user])
       const id = user.split('@')[0]
-      links.find({user: id}).sort({title: 1}, (error, documents) => {
+      links.find({ user: id }).sort({ title: 1 }, (error, documents) => {
         if (error) {
           logger('error', ['api', 'links', 'getLinks', error])
           resolve([])
         } else {
           logger('info', ['api', 'links', 'getLinks', documents.length, 'success'])
-          const userlinks = documents.map(document => Object.assign({}, document, {icon: 'link'}))
+          const userlinks = documents.map(document => Object.assign({}, document, { icon: 'link' }))
           resolve(userlinks)
         }
       })
