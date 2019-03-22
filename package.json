@@ -84,7 +84,7 @@
     "urlencoded-body-parser": "2.0.1",
     "uuid": "3.3.2",
     "wildcard": "1.1.2",
-    "winston": "2.4.4",
+    "winston": "3.2.1",
     "winston-papertrail": "1.0.5"
   },
   "now": {
