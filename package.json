@@ -28,6 +28,7 @@
     "standard-fix": "standard --fix",
     "dev": "node server.js",
     "build": "next build",
+    "now-build": "next build",
     "start": "node server.js",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
     "deploy": "now && now alias"
