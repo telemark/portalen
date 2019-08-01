@@ -3,7 +3,7 @@ import axios from 'axios'
 import Markdown from 'react-markdown'
 import moment from 'moment'
 import 'moment/locale/nb.js'
-import { Box, LinkButton } from '../styles'
+import { Box } from '../styles'
 
 const MessageItem = ({ data }) => (
   <div className='message-item'>
@@ -45,9 +45,6 @@ export default class Messages extends Component {
       <Box style={{ display: 'grid', marginTop: '14px', textAlign: 'left' }}>
         <div className='header'>
           <h1>Meldinger</h1>
-          <div className='right'>
-            <LinkButton>Ny Melding</LinkButton>
-          </div>
         </div>
         {this.state.messages.length > 0 && this.state.messages.map((item, index) => <MessageItem data={item} key={index} />)}
         <style jsx>
