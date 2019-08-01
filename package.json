@@ -31,7 +31,7 @@
     "now-build": "next build",
     "start": "node server.js",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
-    "deploy": "now && now alias"
+    "deploy": "npm test && now --target production"
   },
   "standard": {
     "ignore": [
