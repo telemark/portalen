@@ -10,6 +10,7 @@ class Sidebar extends Component {
   handleClickOutside () {
     this.props.toggleSidebar()
   }
+
   render () {
     const children = this.props.children
     return (

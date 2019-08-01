@@ -2,7 +2,7 @@ const axios = require('axios')
 const jwt = require('jsonwebtoken')
 const log = require('../lib/logger')
 const pkg = require('../package.json')
-let config = require('../config')
+const config = require('../config')
 
 function generateSystemToken (secret) {
   const payload = {

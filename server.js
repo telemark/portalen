@@ -4,7 +4,6 @@ if (dev) {
 }
 
 const micro = require('micro')
-const { parse: urlParse } = require('url')
 const { setup, login, callback, logout } = require('./api')
 const { getTasks } = require('./api/tasks')
 const { getMessages } = require('./api/messages')
@@ -25,7 +24,7 @@ const { DEMO } = require('./config')
 
 const server = micro(async (req, res) => {
   session(req, res)
-  const { pathname } = await urlParse(req.url, true)
+  const pathname = req.url
   if (pathname === '/api/login') {
     if (DEMO) {
       req.session.data = require('./test/user.json')
@@ -50,6 +49,7 @@ const server = micro(async (req, res) => {
       }
       redirect(res, '/')
     } catch (error) {
+      console.error(error)
       throw error
     }
   } else if (pathname === '/api/tasks') {

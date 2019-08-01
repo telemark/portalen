@@ -4,7 +4,7 @@ const { stringify } = require('querystring')
 const redirect = (res, location, statusCode = 302) => { res.statusCode = statusCode; res.setHeader('Location', location); res.end() }
 const urlBodyParse = require('urlencoded-body-parser')
 const pkg = require('../package.json')
-let config = require('../config')
+const config = require('../config')
 
 function log (level, message) {
   if (config.debug) {
@@ -25,6 +25,7 @@ exports.setup = async (handler) => {
     config.keys = keyData.keys
     return handler
   } catch (error) {
+    log('error', `${error}`)
     throw error
   }
 }
@@ -58,6 +59,7 @@ function validateToken (data) {
   try {
     verifiedToken = jwt.verify(data.id_token, pubCert)
   } catch (error) {
+    log('error', `Could not verify token`)
     throw error
   }
   if (data.state !== config.auth.state) {
@@ -108,6 +110,7 @@ exports.callback = async (req, res) => {
     const userProfile = await getUserInfo(token.access_token)
     return Object.assign(profile, { token, userProfile })
   } catch (error) {
+    log('error', error)
     throw error
   }
 }
