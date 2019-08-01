@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/telemark/portalen.svg?branch=master)](https://travis-ci.org/telemark/portalen)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/portalen.svg)](https://greenkeeper.io/)
 
 # portalen
 
@@ -59,5 +58,3 @@ vim config.js
 ## License
 
 [MIT](LICENSE)
-
-![Robohash image of portalen](https://robots.kebabstudios.party/portalen.png "Robohash image of portalen")
