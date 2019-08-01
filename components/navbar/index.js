@@ -9,11 +9,6 @@ const menuLinks = [
     name: 'Profil'
   },
   {
-    href: '/settings',
-    icon: 'settings',
-    name: 'Innstillinger'
-  },
-  {
     href: '/api/logout',
     icon: 'account_circle',
     name: 'Logg ut'
