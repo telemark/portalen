@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "name": "portalen",
+  "alias": "www.portalen.win",
+  "type": "npm",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "MOA_DOMAIN": "https://www.portalen.win",
+    "MOA_TENANT_ID": "skoletfk.onmicrosoft.com",
+    "MOA_CLIENT_ID": "@portalen_moa_client_id",
+    "MOA_CLIENT_SECRET": "@portalen_moa_client_secret",
+    "SESSION_KEY": "@portalen_session_key",
+    "TASKS_JWT_SECRET": "@portalen_tasks_jwt_secret",
+    "TASKS_SERVICE": "https://tasks.t-fk.no/user",
+    "APP_NAME": "Portalen",
+    "COMPANY_NAME": "Telemark fylkeskommune",
+    "COMPANY_FAVICON": "/static/icons/favicon.ico",
+    "COMPANY_ICON152x152": "/static/icons/apple-touch-icon-precomposed.png",
+    "COMPANY_ICON192x192": "/static/icons/chrome-touch-icon-192x192.png",
+    "COLOR_PRIMARY": "#ffd520",
+    "COLOR_PRIMARY_OPPOSITE": "#000000",
+    "COLOR_PRIMARY_LIGHT": "#ffff5d",
+    "COLOR_PRIMARY_DARK": "#c7a400",
+    "COLOR_SECONDARY": "#000000",
+    "COLOR_SECONDARY_OPPOSITE": "#ffffff",
+    "COLOR_SECONDARY_LIGHT": "#2c2c2c",
+    "COLOR_SECONDARY_DARK": "#000000",
+    "DATABASE_URI": "@portalen_database_uri",
+    "PAPERTRAIL_HOSTNAME": "portalen",
+    "PAPERTRAIL_HOST": "@tfk-papertrail-host",
+    "PAPERTRAIL_PORT": "@tfk-papertrail-port"
+  }
+}

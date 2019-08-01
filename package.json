@@ -86,14 +86,5 @@
     "wildcard": "2.0.0",
     "winston": "2.4.4",
     "winston-papertrail": "1.0.5"
-  },
-  "now": {
-    "name": "portalen",
-    "alias": "www.portalen.win",
-    "type": "npm",
-    "engines": {
-      "node": "8.10.0"
-    },
-    "dotenv": "production.env"
   }
 }
