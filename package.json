@@ -18,7 +18,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=10.16.0"
+    "node": ">=10.16.1"
   },
   "scripts": {
     "test": "standard && npm audit && ava",
@@ -31,7 +31,7 @@
     "now-build": "next build",
     "start": "node server.js",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
-    "deploy": "npm test && now --target production"
+    "deploy": "npm test && now && now alias"
   },
   "standard": {
     "ignore": [
@@ -47,9 +47,9 @@
     }
   },
   "keywords": [
-    "Louie",
     "Telemark fylkeskommune",
     "Tfk",
+    "Next",
     "Portalen"
   ],
   "repository": {
