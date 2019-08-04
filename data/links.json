@@ -4,7 +4,7 @@
       "title": "Arbeidsrom",
       "description": "Område for samarbeid og dokumentdeling",
       "system": "Sharepoint",
-      "url": "https://skoletfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
+      "url": "https://vtfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
       "icon": "work"
     },
     {
@@ -26,7 +26,7 @@
         "213.188.19.179"
       ]
     },
-      {
+    {
       "title": "Styringsinformasjon",
       "description": "Styringsinformasjon for Telemark fylkeskommune",
       "system": "CraftCMS",
@@ -38,7 +38,7 @@
         "213.188.19.179"
       ]
     },
-        {
+    {
       "title": "For fylkeshuset",
       "description": "Tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "Wordpress",
@@ -50,7 +50,7 @@
         "213.188.19.179"
       ]
     },
-          {
+    {
       "title": "Velferd",
       "description": "Velferdstjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "Wordpress",
@@ -62,7 +62,7 @@
         "213.188.19.179"
       ]
     },
-          {
+    {
       "title": "IT",
       "description": "IT-tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "Wordpress",
@@ -74,7 +74,7 @@
         "213.188.19.179"
       ]
     },
-        {
+    {
       "title": "Kommunikasjon",
       "description": "Kommunikasjon",
       "system": "Wordpress",
@@ -86,7 +86,7 @@
         "213.188.19.179"
       ]
     },
-        {
+    {
       "title": "Ofte stilte spørsmål",
       "description": "Ofte stilte spørsmål",
       "system": "CraftCMS",
@@ -98,7 +98,7 @@
         "213.188.19.179"
       ]
     },
-        {
+    {
       "title": "Påmeldingssystem",
       "description": "Påmelding",
       "system": "Pindena",
@@ -121,7 +121,7 @@
       "title": "Presentasjoner",
       "description": "Presentasjoner fra samlinger",
       "system": "infoportalen",
-      "url": "https://info.portalen.t-fk.no/landing?id=presentasjoner",
+      "url": "https://portaleninfo.com/presentasjoner",
       "icon": "present_to_all",
       "includeIps": [
         "139.164.160.*",
@@ -135,7 +135,7 @@
       "title": "Arbeidsrom",
       "description": "Område for samarbeid og dokumentdeling",
       "system": "Sharepoint",
-      "url": "https://skoletfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
+      "url": "https://vtfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
       "icon": "work"
     },
     {
@@ -157,7 +157,7 @@
         "213.188.19.179"
       ]
     },
-          {
+    {
       "title": "Velferd",
       "description": "Velferdstjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "Wordpress",
@@ -169,7 +169,7 @@
         "213.188.19.179"
       ]
     },
-          {
+    {
       "title": "IT",
       "description": "IT-tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "Wordpress",
@@ -181,7 +181,7 @@
         "213.188.19.179"
       ]
     },
-        {
+    {
       "title": "Kommunikasjon",
       "description": "Kommunikasjon",
       "system": "Wordpress",
@@ -193,7 +193,7 @@
         "213.188.19.179"
       ]
     },
-        {
+    {
       "title": "Ofte stilte spørsmål",
       "description": "Ofte stilte spørsmål",
       "system": "Wordpress",
@@ -217,7 +217,7 @@
         "213.188.19.179"
       ]
     },
-            {
+    {
       "title": "Påmeldingssystem",
       "description": "Påmelding",
       "system": "Pindena",
@@ -240,7 +240,7 @@
       "title": "Presentasjoner",
       "description": "Presentasjoner fra samlinger",
       "system": "infoportalen",
-      "url": "https://info.portalen.t-fk.no/landing?id=presentasjoner",
+      "url": "https://portaleninfo.com/presentasjoner",
       "icon": "present_to_all",
       "includeIps": [
         "139.164.160.*",
@@ -268,42 +268,42 @@
       "title": "Styringsinformasjon",
       "description": "Styringsinformasjon for Telemark fylkeskommune",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/artikler/2016/styringsinformasjon",
+      "url": "https://portaleninfo.com/styringsinformasjon",
       "icon": "flag"
     },
     {
       "title": "Velferd",
       "description": "Velferdstjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=velferd",
+      "url": "https://portaleninfo.com/Velferd",
       "icon": "directions_run"
     },
     {
       "title": "IT",
       "description": "IT-tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=IT",
+      "url": "https://portaleninfo.com/it",
       "icon": "computer"
     },
     {
       "title": "Kommunikasjon",
       "description": "Kommunikasjon",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=kommunikasjon",
+      "url": "https://portaleninfo.com/kommunikasjon",
       "icon": "chat_bubble"
     },
     {
       "title": "Ofte stilte spørsmål",
       "description": "Ofte stilte spørsmål",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=oftestilte",
+      "url": "https://portaleninfo.com/ofte-stilte-sporsmal",
       "icon": "question_answer"
     },
     {
       "title": "Kontaktinformasjon",
       "description": "Kontaktinformasjon",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=kontaktinformasjon",
+      "url": "https://portaleninfo.com/kontaktinformasjon",
       "icon": "contacts"
     },
     {
@@ -317,14 +317,14 @@
       "title": "Regionreformen",
       "description": "regionreform",
       "system": "infoportalen",
-      "url": "https://info.portalen.t-fk.no/landing?id=regionreform",
+      "url": "https://portaleninfo.com/regionreform",
       "icon": "satellite"
     },
     {
       "title": "Presentasjoner",
       "description": "Presentasjoner fra samlinger",
       "system": "infoportalen",
-      "url": "https://info.portalen.t-fk.no/landing?id=presentasjoner",
+      "url": "https://portaleninfo.com/presentasjoner",
       "icon": "present_to_all"
     }
   ]
