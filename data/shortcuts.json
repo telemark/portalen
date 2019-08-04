@@ -42,7 +42,7 @@
       "title": "Læring",
       "description": "Oversikt over interne kurs og elektronisk opplæringsmateriell",
       "system": "Sharepoint",
-      "url": "https://skoletfk.sharepoint.com/sites/arbrom/laering/Sider/default.aspx",
+      "url": "https://vtfk.sharepoint.com/sites/arbrom/laering/Sider/default.aspx",
       "icon": "school"
     },
     {
@@ -163,7 +163,7 @@
       "title": "E-post",
       "description": "Webmail for ansatte",
       "system": "OWA",
-      "url": "https://epost.vfk.no/OWA/auth/logon.aspx",
+      "url": "http://outlook.office365.com",
       "icon": "email"
     },
     {
