@@ -16,6 +16,11 @@ export default ({ username, toggleSidebar, children }) => (
           width: 100%;
           height: 100%;
         }
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          .main {
+            width: auto;
+            margin: 30px;
+          }
       `}
     </style>
   </Layout>
