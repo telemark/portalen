@@ -4,7 +4,7 @@
       "title": "Arbeidsrom",
       "description": "Område for samarbeid og dokumentdeling",
       "system": "Sharepoint",
-      "url": "https://vtfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
+      "url": "https://skoletfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
       "icon": "work"
     },
     {
@@ -17,60 +17,88 @@
     {
       "title": "Kontaktinformasjon",
       "description": "Kontaktinformasjon til Telemark fylkeskommune",
-      "system": "Sharepoint",
-      "url": "https://info.portalen.t-fk.no/landing?id=kontaktinformasjon",
-      "icon": "contact_phone"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/kontaktinformasjon/",
+      "icon": "contact_phone",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
       {
       "title": "Styringsinformasjon",
       "description": "Styringsinformasjon for Telemark fylkeskommune",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/artikler/2016/styringsinformasjon",
-      "icon": "flag"
+      "url": "https://portaleninfo.com/styringsinformasjon/",
+      "icon": "flag",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
         {
       "title": "For fylkeshuset",
       "description": "Tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=forfylkeshuset",
-      "icon": "account_balance"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/for-fylkeshuset/",
+      "icon": "account_balance",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
           {
       "title": "Velferd",
       "description": "Velferdstjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=velferd",
-      "icon": "directions_run"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/velferd/",
+      "icon": "directions_run",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
           {
       "title": "IT",
       "description": "IT-tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=IT",
-      "icon": "computer"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/it/",
+      "icon": "computer",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
         {
       "title": "Kommunikasjon",
       "description": "Kommunikasjon",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=kommunikasjon",
-      "icon": "chat_bubble"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/kommunikasjon/",
+      "icon": "chat_bubble",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
         {
       "title": "Ofte stilte spørsmål",
       "description": "Ofte stilte spørsmål",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=oftestilte",
-      "icon": "question_answer"
+      "url": "https://portaleninfo.com/ofte-stilte-sporsmal/",
+      "icon": "question_answer",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
         {
-      "title": "Kontaktinformasjon",
-      "description": "Kontaktinformasjon",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=kontaktinformasjon",
-      "icon": "contacts"
-    },
-            {
       "title": "Påmeldingssystem",
       "description": "Påmelding",
       "system": "Pindena",
@@ -80,16 +108,26 @@
     {
       "title": "Regionreformen",
       "description": "regionreform",
-      "system": "infoportalen",
-      "url": "https://info.portalen.t-fk.no/landing?id=regionreform",
-      "icon": "satellite"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/regionreform-2/",
+      "icon": "satellite",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
     {
       "title": "Presentasjoner",
       "description": "Presentasjoner fra samlinger",
       "system": "infoportalen",
       "url": "https://info.portalen.t-fk.no/landing?id=presentasjoner",
-      "icon": "present_to_all"
+      "icon": "present_to_all",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     }
   ],
   "skole": [
@@ -97,7 +135,7 @@
       "title": "Arbeidsrom",
       "description": "Område for samarbeid og dokumentdeling",
       "system": "Sharepoint",
-      "url": "https://vtfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
+      "url": "https://skoletfk.sharepoint.com/sites/arbrom/Arbeidsrom/Sider/default.aspx",
       "icon": "work"
     },
     {
@@ -111,45 +149,75 @@
       "title": "Styringsinformasjon",
       "description": "Styringsinformasjon for Telemark fylkeskommune",
       "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/artikler/2016/styringsinformasjon",
-      "icon": "flag"
+      "url": "https://portaleninfo.com/styringsinformasjon/",
+      "icon": "flag",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
-    {
+          {
       "title": "Velferd",
       "description": "Velferdstjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=velferd",
-      "icon": "directions_run"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/velferd/",
+      "icon": "directions_run",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
-    {
+          {
       "title": "IT",
       "description": "IT-tjenester for de som jobber i administrasjonen i Telemark fylkeskommune",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=IT",
-      "icon": "computer"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/it/",
+      "icon": "computer",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
-    {
+        {
       "title": "Kommunikasjon",
       "description": "Kommunikasjon",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=kommunikasjon",
-      "icon": "chat_bubble"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/kommunikasjon/",
+      "icon": "chat_bubble",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
-    {
+        {
       "title": "Ofte stilte spørsmål",
       "description": "Ofte stilte spørsmål",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=oftestilte",
-      "icon": "question_answer"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/ofte-stilte-sporsmal/",
+      "icon": "question_answer",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
     {
       "title": "Kontaktinformasjon",
-      "description": "Kontaktinformasjon",
-      "system": "CraftCMS",
-      "url": "https://info.portalen.t-fk.no/landing?id=kontaktinformasjon",
-      "icon": "contacts"
+      "description": "Kontaktinformasjon til Telemark fylkeskommune",
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/kontaktinformasjon/",
+      "icon": "contact_phone",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
-    {
+            {
       "title": "Påmeldingssystem",
       "description": "Påmelding",
       "system": "Pindena",
@@ -159,16 +227,26 @@
     {
       "title": "Regionreformen",
       "description": "regionreform",
-      "system": "infoportalen",
-      "url": "https://info.portalen.t-fk.no/landing?id=regionreform",
-      "icon": "satellite"
+      "system": "Wordpress",
+      "url": "https://portaleninfo.com/regionreform-2/",
+      "icon": "satellite",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     },
     {
       "title": "Presentasjoner",
       "description": "Presentasjoner fra samlinger",
       "system": "infoportalen",
       "url": "https://info.portalen.t-fk.no/landing?id=presentasjoner",
-      "icon": "present_to_all"
+      "icon": "present_to_all",
+      "includeIps": [
+        "139.164.160.*",
+        "139.164.182.*",
+        "213.188.19.179"
+      ]
     }
   ],
   "tannhelse": [
