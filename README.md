@@ -25,13 +25,6 @@ Follow the link after "Managed application in local directory" in your registere
 
 See [microsoft docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
-# S3 setup
-
-You will need an S3 bucket on [AWS](https://aws.amazon.com) to persist [GUN](https://github.com/amark/gun) in production.
-
-Follow [this guide](http://gun.js.org/docs/Using-Amazon-S3-for-Storage)
-
-For development you can persist to file.
 
 # Installation alternatives
 

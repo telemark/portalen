@@ -9,7 +9,7 @@
   "env": {
     "NODE_ENV": "production",
     "MOA_DOMAIN": "https://www.portalen.win",
-    "MOA_TENANT_ID": "skoletfk.onmicrosoft.com",
+    "MOA_TENANT_ID": "vtfk.onmicrosoft.com",
     "MOA_CLIENT_ID": "@portalen_moa_client_id",
     "MOA_CLIENT_SECRET": "@portalen_moa_client_secret",
     "SESSION_KEY": "@portalen_session_key",
