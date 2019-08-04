@@ -1,14 +1,14 @@
 {
   "version": 1,
   "name": "portalen",
-  "alias": "www.portalen.win",
+  "alias": "forsiden.portalen.t-fk.no",
   "type": "npm",
   "engines": {
     "node": ">=10.0.0"
   },
   "env": {
     "NODE_ENV": "production",
-    "MOA_DOMAIN": "https://www.portalen.win",
+    "MOA_DOMAIN": "https://forsiden.portalen.t-fk.no",
     "MOA_TENANT_ID": "vtfk.onmicrosoft.com",
     "MOA_CLIENT_ID": "@portalen_moa_client_id",
     "MOA_CLIENT_SECRET": "@portalen_moa_client_secret",
