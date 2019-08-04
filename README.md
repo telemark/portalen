@@ -26,26 +26,34 @@ Follow the link after "Managed application in local directory" in your registere
 See [microsoft docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
 
-# Installation alternatives
+## Development
 
-## 1. Run on host
+Add a local .env file
 
-### Install
-
-Nodejs >= 8.9.4 and npm must be installed.
-
-```sh
-git clone https://github.com/telemark/portalen
-cd portalen
-npm i
+```
+MOA_DOMAIN=http://localhost:3000
+MOA_TENANT_ID=your-tenant-id
+MOA_CLIENT_ID=your-client-id
+MOA_CLIENT_SECRET=your-client-secret
+TASKS_JWT_SECRET=secret-for-task-service
+TASKS_SERVICE=url-for-task-service
+DATABASE_URI=uri-for-mongodb-database
 ```
 
-### Edit config
+Start the development environment
 
-See [config.js](config.js)
+```
+$ npm run dev
+```
 
-```sh
-vim config.js
+## Deploy to ZEIT/Now
+
+Configure [now.json](now.json) to match your environment.
+
+Run deployment script
+
+```
+$ npm run deploy
 ```
 
 ## License
