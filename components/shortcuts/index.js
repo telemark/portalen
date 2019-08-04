@@ -38,7 +38,8 @@ export default ({ shortcuts }) => (
           }
           .shortcut-wrapper div {
             margin: 5px;
-            width: 250px;
+            width: 250px !important;
+            height: 80px !important;
           }
         }
       `}
