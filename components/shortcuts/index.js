@@ -25,7 +25,6 @@ export default ({ shortcuts }) => (
       {`
         .shortcut-wrapper {
           display: grid;
-          display: -ms-grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           -ms-grid-columns: repeat(auto-fit, minmax(250px, 1fr));
           grid-column-gap: 14px;
