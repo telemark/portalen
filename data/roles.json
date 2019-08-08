@@ -662,5 +662,21 @@
       "administrasjonen",
       "talenthuset"
     ]
+  },
+  {
+    "id": "telemarkregionalpark",
+    "name": "Telemark Regionalpark",
+    "groups": [
+      "alle",
+      "regionalpark"
+    ]
+  },
+  {
+    "id": "vigodrift",
+    "name": "Vigo IKS",
+    "groups": [
+      "alle",
+      "vigoiks"
+    ]
   }
 ]
