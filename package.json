@@ -61,7 +61,7 @@
   },
   "homepage": "https://github.com/telemark/portalen#readme",
   "devDependencies": {
-    "ava": "2.2.0",
+    "ava": "2.4.0",
     "babel-eslint": "10.0.2",
     "coveralls": "3.0.6",
     "micro-dev": "3.0.0",
