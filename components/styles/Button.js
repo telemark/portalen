@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { COLORS } from '../../config'
 
 export default (props) => {
