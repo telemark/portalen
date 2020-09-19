@@ -11,7 +11,7 @@ export default (props) => {
     autoFocus: props.autoFocus
   }
   return (
-    <Fragment>
+    <>
       <input {...propTypes} />
       <style jsx>
         {`
@@ -51,6 +51,6 @@ export default (props) => {
           }
         `}
       </style>
-    </Fragment>
+    </>
   )
 }

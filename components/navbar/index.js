@@ -32,7 +32,7 @@ export default ({ username = false, toggleSidebar }) => (
         </a>
       </li>
     </ul>
-    { username
+    {username
       ? <ul className='right'>
         <li>
           <DropDownMenu>
@@ -51,8 +51,7 @@ export default ({ username = false, toggleSidebar }) => (
       </ul>
       : <ul className='right'>
         <li><a href='/api/login'>Logg inn</a></li>
-      </ul>
-    }
+      </ul>}
     <style jsx>{`
       img {
         width: 36px;

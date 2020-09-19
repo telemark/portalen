@@ -32,7 +32,7 @@ export default class extends React.Component {
         {
           this.state.isOpen &&
             <div className='menu-content'>
-              { this.props.children }
+              {this.props.children}
             </div>
         }
         <style jsx>

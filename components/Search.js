@@ -6,10 +6,10 @@ export default class extends Component {
     const searchUrl = `/search?phrase=${phrase}`
     //    const {faset} = this.props
     return (
-      <Fragment>
-        { !phrase
-          ? <Fragment><h1>Søkeside</h1><p className='result-text'>Du har ennå ikke søkt etter noe</p></Fragment>
-          : <Fragment>
+      <>
+        {!phrase
+          ? <><h1>Søkeside</h1><p className='result-text'>Du har ennå ikke søkt etter noe</p></>
+          : <>
             <h1>Søk: {phrase}</h1>
             <div className='nav'>
               <a href={searchUrl}>Alt innhold</a>
@@ -18,8 +18,7 @@ export default class extends Component {
               <a href={`${searchUrl}&faset=portaleninfo`}>Infosider</a>
             </div>
             <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
-          </Fragment>
-        }
+          </>}
         <style jsx>
           {`
             .nav a {
@@ -47,7 +46,7 @@ export default class extends Component {
             }
           `}
         </style>
-      </Fragment>
+      </>
     )
   }
 }

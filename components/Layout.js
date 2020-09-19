@@ -12,7 +12,7 @@ export default ({ children }) => (
       <script type='text/javascript' src='/static/startsWith.polyfill.js' />
       <title>{COMPANY.name} - {APP.name} - {APP.version}</title>
     </Head>
-    { children }
+    {children}
     <style jsx global>
       {`
         body {

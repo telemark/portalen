@@ -5,7 +5,7 @@ export default ({ username, toggleSidebar, children }) => (
   <Layout>
     <Navbar username={username} toggleSidebar={toggleSidebar} />
     <div className='main'>
-      { children }
+      {children}
     </div>
     <style jsx>
       {`

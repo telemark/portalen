@@ -41,7 +41,7 @@ export default class Links extends Component {
   render () {
     return (
       <Sidebar toggleSidebar={this.props.toggleSidebar}>
-        { this.state.links && this.state.links.concat(this.state.userlinks).map((item, index) => <LinkItem data={item} key={index} />)}
+        {this.state.links && this.state.links.concat(this.state.userlinks).map((item, index) => <LinkItem data={item} key={index} />)}
       </Sidebar>
     )
   }

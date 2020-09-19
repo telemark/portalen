@@ -28,7 +28,7 @@ export default class SearchField extends Component {
 
   render () {
     return (
-      <Fragment>
+      <>
         <div style={{ display: 'inline-flex' }}>
           {
             this.state.search && <input type='text' onKeyPress={this.handleSearch} className='searchbar' placeholder='Søk' autoFocus />
@@ -60,7 +60,7 @@ export default class SearchField extends Component {
             }
           `}
         </style>
-      </Fragment>
+      </>
     )
   }
 }

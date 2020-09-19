@@ -59,7 +59,7 @@ function validateToken (data) {
   try {
     verifiedToken = jwt.verify(data.id_token, pubCert)
   } catch (error) {
-    log('error', `Could not verify token`)
+    log('error', 'Could not verify token')
     throw error
   }
   if (data.state !== config.auth.state) {
@@ -75,7 +75,7 @@ function validateToken (data) {
 async function getUserInfo (token) {
   try {
     log('info', `Retrieving user info from ${config.graph_user_info_url}`)
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
     const httpJobs = config.graph_user_info_url.map(url => axios(url))
     const results = await Promise.all(httpJobs)
     return results.map(el => el.data)
@@ -98,14 +98,14 @@ exports.logout = (req, res) => {
 }
 
 exports.callback = async (req, res) => {
-  log('info', `Recivied callback data`)
+  log('info', 'Recivied callback data')
   const callbackData = await urlBodyParse(req)
   const profile = validateToken(callbackData)
-  log('info', `Validated token`)
+  log('info', 'Validated token')
   if (!config.graph_user_info_url) return profile
 
   try {
-    log('info', `Retrieving graph api token`)
+    log('info', 'Retrieving graph api token')
     const token = await getToken(callbackData.code)
     const userProfile = await getUserInfo(token.access_token)
     return Object.assign(profile, { token, userProfile })

@@ -22,7 +22,7 @@ exports.getTasks = async (request, response) => {
   if (user) {
     const id = user.split('@')[0]
     const token = generateSystemToken(config.tasks_jwt_secret)
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
     const url = `${config.tasks_service}/${id}`
     const options = {
       timeout: 3000
