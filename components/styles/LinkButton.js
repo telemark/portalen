@@ -1,5 +1,5 @@
 export default (props) => (
-  <a href={props.href} style={{ ...props.style }} target='_blank'>
+  <a href={props.href} style={{ ...props.style }} rel='noopener noreferrer' target='_blank'>
     {props.children}
     <style jsx>
       {`

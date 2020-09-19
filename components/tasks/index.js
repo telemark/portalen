@@ -1,11 +1,11 @@
-import { Component, Fragment } from 'react'
+import { Component } from 'react'
 import axios from 'axios'
 import { Icon, Box } from '../styles'
 import iconMapper from '../../lib/task-icon-mapper'
 
 const Task = ({ data }) => (
   <>
-    <a href={data.url} target='_blank'>
+    <a href={data.url} rel='noopener noreferrer' target='_blank'>
       <Icon name={iconMapper(data.systemid)} /> {data.title}
     </a>
   </>

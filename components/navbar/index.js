@@ -48,10 +48,10 @@ export default ({ username = false, toggleSidebar }) => (
             }
           </DropDownMenu>
         </li>
-      </ul>
+        </ul>
       : <ul className='right'>
-        <li><a href='/api/login'>Logg inn</a></li>
-      </ul>}
+          <li><a href='/api/login'>Logg inn</a></li>
+        </ul>}
     <style jsx>{`
       img {
         width: 36px;

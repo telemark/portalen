@@ -1,7 +1,7 @@
 import { Icon, Box } from '../styles'
 
 const Shortcut = ({ data }) => (
-  <a href={data.url} target='_blank'>
+  <a href={data.url} rel='noopener noreferrer' target='_blank'>
     <Box style={{ minHeight: '80px' }}>
       <Icon name={data.icon} />
       <h4>{data.title}</h4>

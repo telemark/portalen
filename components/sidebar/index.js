@@ -5,7 +5,7 @@ const axios = require('axios')
 
 const LinkItem = ({ data }) => (
   <div className='link'>
-    <a href={data.url} title={data.description} target='_blank'>
+    <a href={data.url} title={data.description} rel='noopener noreferrer' target='_blank'>
       <Icon style={{ marginRight: '8px' }} name={data.icon} />
       {data.title}
     </a>

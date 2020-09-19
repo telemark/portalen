@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import { Component, Fragment } from 'react'
+import { Component } from 'react'
 
 export default class SearchField extends Component {
   constructor (props) {
@@ -11,7 +11,7 @@ export default class SearchField extends Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
 
-  toggleSearch () {
+  handleToggleSearch () {
     const newState = !this.state.search
     this.setState({ search: newState })
   }
@@ -33,7 +33,7 @@ export default class SearchField extends Component {
           {
             this.state.search && <input type='text' onKeyPress={this.handleSearch} className='searchbar' placeholder='Søk' autoFocus />
           }
-          <a onClick={this.toggleSearch}>
+          <a onClick={this.handleToggleSearch}>
             <i className='material-icons'>search</i>
           </a>
         </div>
