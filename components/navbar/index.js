@@ -15,6 +15,35 @@ const menuLinks = [
   }
 ]
 
+const UserNotLoggedIn = () => {
+  return (
+    <ul className='right'>
+      <li><a href='/api/login'>Logg inn</a></li>
+    </ul>
+  )
+}
+
+const UserLoggedIn = () => {
+  return (
+    <ul className='right'>
+      <li>
+        <DropDownMenu>
+          {
+            menuLinks.map(link =>
+              <a key={link.name} href={link.href}>
+                <div className='menu'>
+                  <Icon style={{ marginLeft: '8px' }} name={link.icon} />
+                  <span style={{ marginLeft: '25px' }}>{link.name}</span>
+                </div>
+              </a>
+            )
+          }
+        </DropDownMenu>
+      </li>
+    </ul>
+  )
+}
+
 export default ({ username = false, toggleSidebar }) => (
   <nav>
     <ul className='left'>
@@ -32,26 +61,7 @@ export default ({ username = false, toggleSidebar }) => (
         </a>
       </li>
     </ul>
-    {username
-      ? <ul className='right'>
-        <li>
-          <DropDownMenu>
-            {
-              menuLinks.map(link =>
-                <a key={link.name} href={link.href}>
-                  <div className='menu'>
-                    <Icon style={{ marginLeft: '8px' }} name={link.icon} />
-                    <span style={{ marginLeft: '25px' }}>{link.name}</span>
-                  </div>
-                </a>
-              )
-            }
-          </DropDownMenu>
-        </li>
-        </ul>
-      : <ul className='right'>
-          <li><a href='/api/login'>Logg inn</a></li>
-        </ul>}
+    {username ? <UserLoggedIn /> : <UserNotLoggedIn />}
     <style jsx>{`
       img {
         width: 36px;
