@@ -1,5 +1,21 @@
 import { Component } from 'react'
 
+const FacetFilter = props => {
+  const { phrase, searchUrl } = props
+  return (
+    <>
+      <h1>Søk: {phrase}</h1>
+      <div className='nav'>
+        <a href={searchUrl}>Alt innhold</a>
+        <a href={`${searchUrl}&faset=employees`}>Ansatte</a>
+        <a href={`${searchUrl}&faset=wwwtelemark`}>wwww.telemark.no</a>
+        <a href={`${searchUrl}&faset=portaleninfo`}>Infosider</a>
+      </div>
+      <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
+    </>
+  )
+}
+
 export default class extends Component {
   render () {
     const { phrase } = this.props
@@ -8,16 +24,7 @@ export default class extends Component {
       <>
         {!phrase
           ? <><h1>Søkeside</h1><p className='result-text'>Du har ennå ikke søkt etter noe</p></>
-          : <>
-            <h1>Søk: {phrase}</h1>
-            <div className='nav'>
-              <a href={searchUrl}>Alt innhold</a>
-              <a href={`${searchUrl}&faset=employees`}>Ansatte</a>
-              <a href={`${searchUrl}&faset=wwwtelemark`}>wwww.telemark.no</a>
-              <a href={`${searchUrl}&faset=portaleninfo`}>Infosider</a>
-            </div>
-            <p className='result-text'>0 treff på søkeordet "{phrase}", viser side 1 av 1.</p>
-          </>}
+          : <FacetFilter phrase={phrase} searchUrl={searchUrl} />}
         <style jsx>
           {`
             .nav a {
